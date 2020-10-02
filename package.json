@@ -1,0 +1,11 @@
+{
+  "name": "pui-assignment-5",
+  "version": "0.0.1",
+  "description": "Assignment 5 for Programming User Interfaces at Carnegie Mellon Univeristy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kylon Chiang",
+  "license": "ISC"
+}
