@@ -1,3 +1,36 @@
 {% extends "template.html" %}
 
-{% block content %}{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="styles/shop.css">
+{% endblock %}
+
+{% block content %}
+<section id="product-photos">
+    <div id="highlight"></div>
+    <section id="carousel">
+        <div class="thumbnail" id="thumb-1"></div>
+        <div class="thumbnail" id="thumb-2"></div>
+    </section>
+</section>
+<section id="product-details">
+    <section id="product-name">Signature Roll</section>
+    <section id="product-price">$8 Each</section>
+    <section id="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</section>
+    <section id="product-description">
+        <span class="product-desc-content">Our signature cinnamon rolls are devilishy delicious and come in a variety of unseasonal flavors. Raise your cholestrol with our variety of icing options for the perfect sweet treat. Pop your rolls in the microwave for 30 seconds before serving to and feel like you’re receiving a warm cardiac arrest from this delicious dessert!</span>
+        <span class="product-desc-content">We work with local farmers to source organic ingredients, which make our rolls that much more special and delicious.</span>
+        <span class="product-desc-content">All our pastries are non-GMO, cage-free, free range, and made with 100% love.</span>
+    </section>
+    <section id="product-selection">
+        <section class="selection">
+            <div class="title">flavor</div>
+        </section>
+        <section class="selection">
+            <div class="title">glaze</div>
+        </section>
+        <section class="selection">
+            <div class="title">quantity</div>
+        </section>
+    </section>
+</section>
+{% endblock %}
