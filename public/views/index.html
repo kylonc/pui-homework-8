@@ -1,4 +1,19 @@
 {% extends "template.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="styles/index.css">
+{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+    <section id="description">
+        <div class="descriptor">Luscious.</div>
+        <div class="descriptor">Sinful.</div>
+        <div class="descriptor">Delicious.</div>
+        <a href="/shop">
+            <button class="cta" type="button">Shop Our Rolls</button>
+        </a>
+    </section>
+    <section id="vertical-hero">
+        <img src="https://www.onceuponachef.com/images/2012/04/Cinnamon-Buns-760x983.jpg" alt="cinnamon rolls">
+    </section>
+{% endblock %}
