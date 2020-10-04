@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+header {
+    display: grid;
+    grid-template-areas: ". logo nav";
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 5em;
+    padding-right: 5em;
+    height: 50px;
+    align-content: center;
+}
+
+nav {
+    grid-area: nav;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 3em;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-item:first-child {
+    margin-left: 0;
+}
