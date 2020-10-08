@@ -1,13 +1,13 @@
 {
 	"name": "pui-assignment-5",
 	"version": "0.0.1",
-	"description": "Assignment 5 for Programming User Interfaces at Carnegie Mellon Univeristy",
-	"main": "dist/index.js",
+	"description": "Homework assignments for Programming User Interfaces at Carnegie Mellon Univeristy",
+	"main": "homework_5/dist/index.js",
 	"scripts": {
 		"prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
 		"build": "tsc",
 		"prestart": "npm run build",
-		"start": "node dist/index.js",
+		"start": "node homework_5/dist/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Kylon Chiang",
