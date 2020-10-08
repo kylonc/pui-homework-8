@@ -5,25 +5,27 @@ import nunjucks from "nunjucks";
 const app: Express = express();
 const port: number = 8080;
 
+// View directories
+const viewDir = path.join("homework_5", "public", "views");
+
 // Serve housekeeping
-app.set("views", path.join("public", "views"));
 app.set("view engine", "html")
-app.use(express.static("public"))
+app.use(express.static(path.join("homework_5", "public")))
 
 // Configure nunjucks
-nunjucks.configure(app.get("views"), {
+nunjucks.configure(viewDir, {
     express: app
 });
 
-// Initialize server
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("home");
 });
 
 app.get("/:route", (req, res) => {
-    res.render(req.params.route);
+    res.render(`${req.params.route}`);
 });
 
+// Initialize Server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
     console.log("Listening on port ", port);
