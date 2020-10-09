@@ -10,12 +10,14 @@
 #content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 8em;
+    column-gap: 4em;
+    margin: 8em auto;
+    padding: 0 8rem;
 }
 
 #product-photos {
     justify-self: center;
-    width: 90%;
+    width: 100%;
 }
 
 #product-photos #highlight {
@@ -54,21 +56,40 @@
 }
 
 #product-details {
-    width: 90%;
     justify-self: center;
 }
 
-#product-details #product-name {
+#product-details #product-header {
+    display: grid;
+    grid-template-areas: "name cta"
+                         "price ."
+                         "rating ."
+}
+
+#product-details #product-header #product-name {
+    grid-area: name;
     font-family: "Abril Fatface", cursive;
     font-size: 2em;
 }
 
-#product-details #product-rating {
+#product-details #product-header .cta {
+    grid-area: cta;
+    justify-self: end;
+}
+
+#product-details #product-header #product-price {
+    grid-area: price;
+    margin-top: 1em;
+}
+
+#product-details #product-header #product-rating {
+    grid-area: rating;
+    margin-top: 2em;
     color: #818EB1;
 }
 
 #product-details #product-description {
-    margin-top: 3em;
+    margin-top: 2em;
     line-height: 1.5em;
 }
 
@@ -77,12 +98,21 @@
     margin-top: 1em;
 }
 
+#product-details #product-description .product-desc-content.shipping {
+    margin-top: 2em;
+    font-weight: 500;
+}
+
+#product-details #product-description .product-desc-content.shipping .truck-icon {
+    margin-right: 0.5em;
+}
+
 #product-details #product-description .product-desc-content:first-child {
     margin-top: 0;
 }
 
 #product-details #product-selection {
-    margin-top: 3em;
+    display: grid;
 }
 
 #product-details #product-selection .selection {
@@ -92,4 +122,49 @@
 #product-details #product-selection .selection .title {
     text-transform: uppercase;
     font-weight: 500;
+}
+
+#product-selection .selection label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.8em 1.7em;
+    border: 2px solid #C4C4C4;
+    border-radius: 2px;
+    margin-top: 1em;
+    margin-right: 0.5em;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#product-selection .selection label:before {
+    display: block;
+    content: attr(content);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#product-selection .selection label:hover {
+    border-color: #000;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#product-selection .selection#quantity label {
+    display: inline-flex;
+    padding: 0;
+    height: 45px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-selection .selection input:checked + label{
+    background-color: #000;
+    border-color: #000;
+    color: #FFFBEE;
+    font-weight: 500;
+}
+
+#product-selection .cta {
+    margin-top: 3em;
 }
