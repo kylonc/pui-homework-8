@@ -9,10 +9,10 @@ const nunjucks_1 = __importDefault(require("nunjucks"));
 const app = express_1.default();
 const port = 8080;
 // View directories
-const viewDir = path_1.default.join("homework_5", "public", "views");
+const viewDir = path_1.default.join("PUI2020", "homework_5", "public", "views");
 // Serve housekeeping
 app.set("view engine", "html");
-app.use(express_1.default.static(path_1.default.join("homework_5", "public")));
+app.use(express_1.default.static(path_1.default.join("PUI2020", "homework_5", "public")));
 // Configure nunjucks
 nunjucks_1.default.configure(viewDir, {
     express: app

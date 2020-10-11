@@ -6,7 +6,7 @@
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "homework_5/dist",
+        "outDir": "PUI2020/homework_5/dist",
         "baseUrl": ".",
         "paths": {
             "*": [

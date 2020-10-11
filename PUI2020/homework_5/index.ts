@@ -6,11 +6,11 @@ const app: Express = express();
 const port: number = 8080;
 
 // View directories
-const viewDir = path.join("homework_5", "public", "views");
+const viewDir = path.join("PUI2020", "homework_5", "public", "views");
 
 // Serve housekeeping
 app.set("view engine", "html")
-app.use(express.static(path.join("homework_5", "public")))
+app.use(express.static(path.join("PUI2020", "homework_5", "public")))
 
 // Configure nunjucks
 nunjucks.configure(viewDir, {
