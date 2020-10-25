@@ -129,7 +129,7 @@
 
 #product-selection .selection label:before {
     display: block;
-    content: attr(content);
+    content: attr(data-content);
     font-weight: 500;
     height: 0;
     overflow: hidden;
