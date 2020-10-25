@@ -2,10 +2,13 @@
 	"name": "pui-assignments",
 	"version": "0.0.1",
 	"description": "Homework assignments for Programming User Interfaces at Carnegie Mellon Univeristy",
+	"homepage": "http://kylonc.github.io/kylonc.github.io",
 	"main": "dist/index.js",
 	"scripts": {
 		"build": "webpack",
-		"watch": "webpack -w"
+		"watch": "webpack -w",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d ."
 	},
 	"author": "Kylon Chiang",
 	"license": "ISC",
@@ -23,6 +26,7 @@
 	},
 	"devDependencies": {
 		"css-loader": "^5.0.0",
+		"gh-pages": "^3.1.0",
 		"nodemon": "^2.0.4",
 		"style-loader": "^2.0.0",
 		"ts-loader": "^8.0.6",
