@@ -25,18 +25,19 @@ enum Quantity {
     Twelve = 12
 }
 
-interface IShopState {
+export interface IShopState {
     flavor: Flavor;
     glaze: Glaze;
     quantity: Quantity;
-    [key: string]: string | number;
 }
 
 export interface IOptionData {
     name: string;
     id: string;
-    key: Flavor | Glaze | Quantity;
+    key: Options;
 }
+
+type Options = Flavor | Glaze | Quantity;
 
 export class Shop extends React.Component<{}, IShopState> {
 
@@ -82,12 +83,12 @@ export class Shop extends React.Component<{}, IShopState> {
         {
             name: "Sugar (Milk)",
             id: "sugar-milk",
-            key: Glaze.None
+            key: Glaze.SugarMilk
         },
         {
             name: "Vanilla (Milk)",
             id: "vanilla-milk",
-            key: Glaze.None
+            key: Glaze.SugarVanilla
         },
         {
             name: "Double Chocolate",
@@ -127,36 +128,30 @@ export class Shop extends React.Component<{}, IShopState> {
             quantity: Quantity.One
         };
 
-        this.onOptionChange = this.onOptionChange.bind(this)
+        this.onOptionChange = this.onOptionChange.bind(this);
+        this.onAddtoCart = this.onAddtoCart.bind(this);
     }
 
-    private onOptionChange(option: string, value: string | number): () => void {
-        return () => {
-            this.setState({
-                [option]: value
-            });
-        }
+    private onOptionChange(option: keyof IShopState, value: Flavor | Quantity | Glaze) {
+        const { flavor, glaze, quantity } = this.state;
+        const nextState = Object.assign(
+            {
+                flavor,
+                glaze,
+                quantity
+            },
+            { [option]: value }
+        );
+        this.setState({ ...nextState })
     }
 
-    private generateOptions(optionType: string, options: IOptionData[]): JSX.Element[] {
-        return options.map((option: IOptionData) => {
-            return (
-                <React.Fragment key={option.id}>
-                    <input
-                        id={option.id}
-                        type="radio"
-                        name={optionType}
-                        hidden={true}
-                        defaultChecked={this.state.flavor === option.key}
-                        onChange={this.onOptionChange("flavor", option.key)}
-                    />
-                    <label htmlFor={option.id} data-content={option.name}>{option.name}</label>
-                </React.Fragment>
-            );
-        });
+    private onAddtoCart() {
+        const options = Object.assign({}, this.state);
     }
 
     render() {
+        // tslint:disable-next-line: no-console
+        console.log(this.state);
         return (
             <section id="shop-content">
                 <section id="product-photos">
@@ -227,7 +222,13 @@ export class Shop extends React.Component<{}, IShopState> {
                                 onChangeHandler={this.onOptionChange}
                             />
                         </section>
-                        <button className="cta" type="button">Add to Cart</button>
+                        <button
+                            className="cta"
+                            type="button"
+                            onClick={this.onAddtoCart}
+                        >
+                            Add to Cart
+                        </button>
                     </form>
                 </section>
             </section>
