@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.css"
+import { Cart } from "../../components/cart";
 import { Radio } from "../../components/radio";
+import { ICartData } from "../../components/cart";
 
-enum Flavor {
+export enum Flavor {
     Original = "original",
     OriginalGF = "original-gf",
     Walnut = "walnut",
@@ -11,24 +13,33 @@ enum Flavor {
     CaramelPecan = "caramel-pecan"
 }
 
-enum Glaze {
+export enum Glaze {
     None = "none",
     SugarMilk = "sugar-milk",
     SugarVanilla = "sugar-vanilla",
     DoubleChocolate = "double-choco"
 }
 
-enum Quantity {
+export enum Quantity {
     One = 1,
     Three = 3,
     Six = 6,
     Twelve = 12
 }
 
+interface IShopProps {
+    onUpdateCart: (newItem: ICartData) => void;
+}
+
 export interface IShopState {
     flavor: Flavor;
     glaze: Glaze;
     quantity: Quantity;
+    price: number;
+}
+
+interface IPriceData {
+    [key: string]: number;
 }
 
 export interface IOptionData {
@@ -39,8 +50,7 @@ export interface IOptionData {
 
 type Options = Flavor | Glaze | Quantity;
 
-export class Shop extends React.Component<{}, IShopState> {
-
+export class Shop extends React.Component<IShopProps, IShopState> {
     private flavorData: IOptionData[] = [
         {
             name: "Original",
@@ -120,12 +130,29 @@ export class Shop extends React.Component<{}, IShopState> {
         },
     ];
 
-    constructor(props = {}) {
+    private flavorPrice: IPriceData = {
+        [Flavor.Original]: 8,
+        [Flavor.OriginalGF]: 10,
+        [Flavor.Walnut]: 9,
+        [Flavor.Blackberry]: 10,
+        [Flavor.PumpkinSpice]: 9,
+        [Flavor.CaramelPecan]: 9,
+    }
+
+    private glazePrice: IPriceData = {
+        [Glaze.None]: 0,
+        [Glaze.SugarMilk]: 2,
+        [Glaze.SugarVanilla]: 2,
+        [Glaze.DoubleChocolate]: 3,
+    }
+
+    constructor(props: IShopProps) {
         super(props);
         this.state = {
             flavor: Flavor.Original,
             glaze: Glaze.None,
-            quantity: Quantity.One
+            quantity: Quantity.One,
+            price: this.flavorPrice[Flavor.Original] + this.glazePrice[Glaze.None]
         };
 
         this.onOptionChange = this.onOptionChange.bind(this);
@@ -133,25 +160,45 @@ export class Shop extends React.Component<{}, IShopState> {
     }
 
     private onOptionChange(option: keyof IShopState, value: Flavor | Quantity | Glaze) {
-        const { flavor, glaze, quantity } = this.state;
         const nextState = Object.assign(
-            {
-                flavor,
-                glaze,
-                quantity
-            },
+            { ...this.state },
             { [option]: value }
         );
+        nextState.price = this.flavorPrice[nextState.flavor] + this.glazePrice[nextState.glaze];
         this.setState({ ...nextState })
     }
 
     private onAddtoCart() {
-        const options = Object.assign({}, this.state);
+        const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
+        let cart: ICartData[] = [];
+
+        if (!cartString) {
+            // no items in the cart yet
+            cart = [Object.assign({}, this.state)]
+        } else {
+            // combine with items already in cart, if possible
+            const { flavor, glaze, quantity } = this.state;
+            cart = JSON.parse(cartString);
+            const itemIndex = cart.findIndex((item: ICartData) => {
+                return item.flavor === flavor && item.glaze === glaze;
+            });
+
+            if (itemIndex >= 0) {
+                cart[itemIndex].quantity += quantity;
+            } else {
+                cart.push(Object.assign({}, this.state));
+            }
+        }
+
+        localStorage.setItem(
+            Cart.LOCALSTORAGE_NAME,
+            JSON.stringify(cart)
+        )
+
+        this.props.onUpdateCart(cart[cart.length - 1]);
     }
 
     render() {
-        // tslint:disable-next-line: no-console
-        console.log(this.state);
         return (
             <section id="shop-content">
                 <section id="product-photos">
@@ -164,9 +211,15 @@ export class Shop extends React.Component<{}, IShopState> {
                 <section id="product-details">
                     <section id="product-header">
                         <span id="product-name">Signature Roll</span>
-                        <button className="cta" type="button">Add to Cart</button>
-                        <span id="product-price">$8 Each</span>
+                        <button
+                            className="cta"
+                            type="button"
+                            onClick={this.onAddtoCart}
+                        >
+                            Add to Cart
+                        </button>
                         <span id="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        <span className="product-pricing">Total: ${this.state.price * this.state.quantity}</span>
                     </section>
                     <section id="product-description">
                         <span className="product-desc-content">Our signature cinnamon rolls are devilishy delicious and come in a variety of
@@ -189,7 +242,7 @@ export class Shop extends React.Component<{}, IShopState> {
                                     fill="black" />
                             </svg>
 
-                        Available for shipping or in-store pick-up. Choose at checkout.</span>
+                        Available for shipping or in-store pick-up. Please choose at checkout.</span>
                     </section>
                     <form id="product-selection">
                         <section id="flavor" className="selection">
@@ -222,6 +275,7 @@ export class Shop extends React.Component<{}, IShopState> {
                                 onChangeHandler={this.onOptionChange}
                             />
                         </section>
+                        <span className="product-pricing">Total: ${this.state.price * this.state.quantity}</span>
                         <button
                             className="cta"
                             type="button"

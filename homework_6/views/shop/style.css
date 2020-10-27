@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 4em;
-    margin: 8em auto 0;
+    margin: 8em auto;
     padding: 0 8rem;
     max-width: 1440px;
 }
@@ -53,9 +53,9 @@
 
 #product-details #product-header {
     display: grid;
-    grid-template-areas: "name cta"
-                         "price ."
-                         "rating ."
+    grid-template-columns: 1fr min-content;
+    grid-template-areas: "name pricing"
+                         "rating cta"
 }
 
 #product-details #product-header #product-name {
@@ -67,17 +67,24 @@
 #product-details #product-header .cta {
     grid-area: cta;
     justify-self: end;
-}
-
-#product-details #product-header #product-price {
-    grid-area: price;
-    margin-top: 1em;
+    margin-top: 0
 }
 
 #product-details #product-header #product-rating {
     grid-area: rating;
-    margin-top: 2em;
+    margin-top: 1em;
     color: #818EB1;
+}
+
+.product-pricing {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #818EB1;
+}
+
+#product-details #product-header .product-pricing {
+    grid-area: pricing;
+    justify-self: start;
 }
 
 #product-details #product-description {
@@ -103,6 +110,11 @@
     margin-top: 0;
 }
 
+#product-details #product-description #product-pricing {
+    color: #818EB1;
+    font-size: 1.5rem;
+}
+
 #product-details #product-selection {
     display: grid;
 }
@@ -113,7 +125,7 @@
 
 #product-details #product-selection .selection .title {
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 #product-selection .selection label {
@@ -157,6 +169,10 @@
     font-weight: 500;
 }
 
+#product-selection .product-pricing {
+    margin-top: 2em;
+}
+
 #product-selection .cta {
-    margin-top: 3em;
+    margin-top: 1em;
 }

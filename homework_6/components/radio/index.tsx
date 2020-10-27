@@ -1,8 +1,9 @@
 import React from "react";
-import { IOptionData, IShopState } from "../../views/shop";
+import { IOptionData } from "../../views/shop";
+import { ICartData } from "../../components/cart";
 
 interface IRadioProps {
-    type: keyof IShopState;
+    type: keyof ICartData;
     usePlaceholder: boolean;
     options: IOptionData[];
     selectedOption: string | number;
