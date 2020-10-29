@@ -18,11 +18,21 @@ export class App extends React.Component<{}, IAppState> {
         this.state = {
             currentNavItem: null,
             showCart: false,
-            newItem: null
+            newItem: this.lastItem
         };
 
         this.onNav = this.onNav.bind(this);
         this.onUpdateCart = this.onUpdateCart.bind(this);
+    }
+
+    public get lastItem(): ICartData {
+        const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
+
+        if (cartString) {
+            const cart = JSON.parse(cartString);
+            return cart[cart.length - 1];
+        }
+        return null;
     }
 
     public onNav(currentNavItem: NavItem) {

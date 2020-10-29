@@ -221,29 +221,6 @@ export class Shop extends React.Component<IShopProps, IShopState> {
                         <span id="product-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                         <span className="product-pricing">Total: ${this.state.price * this.state.quantity}</span>
                     </section>
-                    <section id="product-description">
-                        <span className="product-desc-content">Our signature cinnamon rolls are devilishy delicious and come in a variety of
-                        unseasonal flavors. Raise your cholestrol with our variety of icing options for the perfect sweet treat. Pop
-                        your rolls in the microwave for 30 seconds before serving to and feel like you’re receiving a warm cardiac
-                        arrest from this delicious dessert!</span>
-                        <span className="product-desc-content">We work with local farmers to source organic ingredients, which make our
-                        rolls that much more special and delicious.</span>
-                        <span className="product-desc-content">All our pastries are non-GMO, cage-free, free range, and made with 100%
-                        love.</span>
-                        <span className="product-desc-content shipping">
-                            <svg className="truck-icon" width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.33333 4.23529H9V12H1V7.47059L4.33333 4.23529Z" stroke="black" />
-                                <path d="M25 12H11.6667V6.82353V1H25V12Z" stroke="black" />
-                                <path
-                                    d="M7.5 13C7.5 14.3807 6.38071 15.5 5 15.5C3.61929 15.5 2.5 14.3807 2.5 13C2.5 11.6193 3.61929 10.5 5 10.5C6.38071 10.5 7.5 11.6193 7.5 13Z"
-                                    fill="black" />
-                                <path
-                                    d="M23 13C23 14.3807 21.8807 15.5 20.5 15.5C19.1193 15.5 18 14.3807 18 13C18 11.6193 19.1193 10.5 20.5 10.5C21.8807 10.5 23 11.6193 23 13Z"
-                                    fill="black" />
-                            </svg>
-
-                        Available for shipping or in-store pick-up. Please choose at checkout.</span>
-                    </section>
                     <form id="product-selection">
                         <section id="flavor" className="selection">
                             <div className="title">flavor</div>
@@ -275,15 +252,30 @@ export class Shop extends React.Component<IShopProps, IShopState> {
                                 onChangeHandler={this.onOptionChange}
                             />
                         </section>
-                        <span className="product-pricing">Total: ${this.state.price * this.state.quantity}</span>
-                        <button
-                            className="cta"
-                            type="button"
-                            onClick={this.onAddtoCart}
-                        >
-                            Add to Cart
-                        </button>
                     </form>
+                    <section id="product-description">
+                        <span className="product-desc-content">Our signature cinnamon rolls are devilishy delicious and come in a variety of
+                        unseasonal flavors. Raise your cholestrol with our variety of icing options for the perfect sweet treat. Pop
+                        your rolls in the microwave for 30 seconds before serving to and feel like you’re receiving a warm cardiac
+                        arrest from this delicious dessert!</span>
+                        <span className="product-desc-content">We work with local farmers to source organic ingredients, which make our
+                        rolls that much more special and delicious.</span>
+                        <span className="product-desc-content">All our pastries are non-GMO, cage-free, free range, and made with 100%
+                        love.</span>
+                        <span className="product-desc-content shipping">
+                            <svg className="truck-icon" width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.33333 4.23529H9V12H1V7.47059L4.33333 4.23529Z" stroke="black" />
+                                <path d="M25 12H11.6667V6.82353V1H25V12Z" stroke="black" />
+                                <path
+                                    d="M7.5 13C7.5 14.3807 6.38071 15.5 5 15.5C3.61929 15.5 2.5 14.3807 2.5 13C2.5 11.6193 3.61929 10.5 5 10.5C6.38071 10.5 7.5 11.6193 7.5 13Z"
+                                    fill="black" />
+                                <path
+                                    d="M23 13C23 14.3807 21.8807 15.5 20.5 15.5C19.1193 15.5 18 14.3807 18 13C18 11.6193 19.1193 10.5 20.5 10.5C21.8807 10.5 23 11.6193 23 13Z"
+                                    fill="black" />
+                            </svg>
+
+                        Available for shipping or in-store pick-up. Please choose at checkout.</span>
+                    </section>
                 </section>
             </section>
         );

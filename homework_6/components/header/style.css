@@ -3,7 +3,13 @@ header {
     height: 85px;
     top: 0;
     background-color: #818EB1;
-    z-index: 2;
+}
+
+.nav-wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 nav {
@@ -15,10 +21,8 @@ nav {
     color: #FFFBEE;
     background-color: #818EB1;
     align-content: center;
-    padding: 0 8rem;
-    margin: 0 auto;
-    max-width: 1440px;
     height: 100%;
+    width: 100%;
 }
 
 .logo {
