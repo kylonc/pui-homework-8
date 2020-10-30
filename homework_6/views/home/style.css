@@ -1,13 +1,15 @@
 #home-content {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     max-width: 1440px;
+    padding: 0 8rem;
     margin: 0 auto;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+    box-sizing: border-box;
 }
 
 #description {
     margin-top: 10em;
-    margin-left: 8.5em;
     letter-spacing: 0;
 }
 
@@ -16,13 +18,11 @@
     font-size: 6em;
 }
 
-#vertical-hero {
-    overflow-x: hidden;
-}
-
-#vertical-hero img {
-    display: block;
-    pointer-events: none;
+#vertical-hero .image {
+    height: 900px;
+    background-image: url("https://www.onceuponachef.com/images/2012/04/Cinnamon-Buns-760x983.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .cta {

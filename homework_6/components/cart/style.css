@@ -11,12 +11,81 @@
     z-index: 1;
 }
 
-.cart-card .thumbnail {
-    background-image: url("https://www.veganricha.com/wp-content/uploads/2020/05/Sweet-potato-cinnamon-rolls-veganricha-9420-2-1.jpg");
+.cart-card .card-control {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-card .card-control span {
+    color: #818EB1;
+    display: block;
+    position: relative;
+    outline: 0;
+    border: 0;
+    padding: 0;
+}
+
+.cart-card .announcement {
+    grid-area: announcement;
+    font-family: "Abril Fatface", cursive;
+    font-size: 1.2rem;
+}
+
+.cart-card .list-view {
+    grid-area: list-view;
+    display: grid;
+    grid-template-areas: "thumbnail options";
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    margin-top: 1rem;
+}
+
+.cart-card .list-view .thumbnail {
     background-size: cover;
     background-position: center;
+    height: 90px;
+}
+
+.cart-card .list-view .item-info .title {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.cart-card .list-view .item-info .options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+
+.cart-card .editable-actions {
+    grid-area: editable-actions;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+}
+
+.cart-card .editable-actions .action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    background-color: #fff;
+    color: #818EB1;
+    border: 1px solid #C4C4C4;
+    height: 30px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.cart-card .editable-actions .action .icon {
+    margin-right: 10px;
 }
 
 .cart-card .cta {
+    grid-area: cta;
     width: 100%;
+    margin-top: 1rem;
 }

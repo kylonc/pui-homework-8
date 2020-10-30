@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 
-export function About() {
+export function AboutPage() {
     return (
         <section id="about-content">
             <div id="vertical-hero" />

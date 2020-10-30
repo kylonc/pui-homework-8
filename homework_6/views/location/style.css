@@ -1,0 +1,18 @@
+#location-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 8rem;
+}
+
+#location-content .location-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#location-content .location-select .prefix {
+    margin-right: 1rem;
+    font-family: "Abril Fatface", cursive;
+}

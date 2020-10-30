@@ -1,10 +1,11 @@
 #shop-content {
     display: grid;
+    max-width: 1440px;
+    box-sizing: border-box;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 4em;
     margin: 8em auto;
     padding: 0 8rem;
-    max-width: 1440px;
 }
 
 #product-photos {
@@ -54,8 +55,8 @@
 #product-details #product-header {
     display: grid;
     grid-template-columns: 1fr min-content;
-    grid-template-areas: "name pricing"
-                         "rating cta"
+    grid-template-areas: "name"
+                         "rating"
 }
 
 #product-details #product-header #product-name {
@@ -87,6 +88,16 @@
     justify-self: start;
 }
 
+#product-details .shipping {
+    display: block;
+    margin-top: 2em;
+    font-weight: 500;
+}
+
+#product-details .shipping .truck-icon {
+    margin-right: 0.5em;
+}
+
 #product-details #product-description {
     margin-top: 2em;
     line-height: 1.5em;
@@ -95,15 +106,6 @@
 #product-details #product-description .product-desc-content {
     display: block;
     margin-top: 1em;
-}
-
-#product-details #product-description .product-desc-content.shipping {
-    margin-top: 2em;
-    font-weight: 500;
-}
-
-#product-details #product-description .product-desc-content.shipping .truck-icon {
-    margin-right: 0.5em;
 }
 
 #product-details #product-description .product-desc-content:first-child {
@@ -123,6 +125,7 @@
     margin-top: 3em;
 }
 
+#product-description .title,
 #product-details #product-selection .selection .title {
     text-transform: uppercase;
     font-weight: 700;
