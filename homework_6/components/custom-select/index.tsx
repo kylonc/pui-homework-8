@@ -27,7 +27,7 @@ export class CustomSelect extends React.Component<ICustomSelectProps> {
             <section className="select">
                 <span className="current-value" onClick={this.props.toggleOptionGroup}>
                     {this.props.currVal}
-                    <span 
+                    <span
                         className={"arrow" + (showOptionGroup ? " up" : " down")} />
                 </span>
                 <section className={"option-group" + (showOptionGroup ? " visible" : "")}>

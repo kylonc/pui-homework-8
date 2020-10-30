@@ -35,8 +35,6 @@ export class App extends React.Component<{}, IAppState> {
 
     public get cartCount(): number {
         const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
-        // tslint:disable-next-line: no-console
-        console.log("counting items");
         if (cartString) {
             const cart = JSON.parse(cartString);
             return cart.reduce((acc: number, curr: ICartData) => {
