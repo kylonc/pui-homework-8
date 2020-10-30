@@ -281,7 +281,9 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
                         Available for shipping or in-store pick-up. Please choose at checkout.</span>
                     <form id="product-selection">
                         <section id="flavor" className="selection">
-                            <div className="title">flavor</div>
+                            <div className="title">flavor:
+                                <span className="curr-selection"> {this.flavorMap[this.state.flavor].name} +${this.flavorMap[this.state.flavor].price}</span>
+                            </div>
                             <Radio
                                 type="flavor"
                                 usePlaceholder={true}
@@ -291,7 +293,9 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
                             />
                         </section>
                         <section id="glaze" className="selection">
-                            <div className="title">glaze</div>
+                            <div className="title">glaze:
+                                <span className="curr-selection"> {this.glazeMap[this.state.glaze].name}  +${this.glazeMap[this.state.glaze].price}</span>
+                            </div>
                             <Radio
                                 type="glaze"
                                 usePlaceholder={true}
