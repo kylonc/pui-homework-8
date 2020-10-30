@@ -53,7 +53,7 @@ export class Cart extends React.Component<ICartProps> {
 
         cart[itemIndex].quantity -= this.props.newItem.quantity;
 
-        // Remove item if remaining quanityt is 0
+        // Remove item from cart if remaining quanityt is 0
         if (cart[itemIndex].quantity === 0) {
             cart.splice(itemIndex, 1);
         }

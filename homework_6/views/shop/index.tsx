@@ -207,14 +207,19 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
             { ...this.state },
             { [option]: value }
         );
+
+        // Update price and imgSrc everytime since we don't know which state changed
         nextState.price = this.flavorMap[nextState.flavor].price + this.glazeMap[nextState.glaze].price;
         nextState.imgSrc = this.flavorMap[nextState.flavor].imgSrc;
+
         this.setState({ ...nextState })
     }
 
     private onAddtoCart() {
         const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
         let cart: ICartData[] = [];
+
+        // Replace flavor and glaze with user-facing names
         const newItem: ICartData = Object.assign(
             {},
             this.state,
@@ -241,6 +246,7 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
             }
         }
 
+        // Save cart to be used in cart page
         localStorage.setItem(
             Cart.LOCALSTORAGE_NAME,
             JSON.stringify(cart)
