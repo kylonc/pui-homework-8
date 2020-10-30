@@ -122,7 +122,7 @@ export class LocationPage extends React.Component<{}, ILocationState> {
             <section id="location-content">
                 <section className="col-left">
                     <section className="location-select">
-                        <span className="prefix">I live in</span>
+                        <span className="prefix">I am in</span>
                         <CustomSelect
                             currVal={this.state.currLocation.name}
                             options={orderedLocations}
@@ -136,9 +136,8 @@ export class LocationPage extends React.Component<{}, ILocationState> {
                     <span className="area-img" />
                 </section>
                 <section className="col-right">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d663.2578333165998!2d-79.91890892341169!3d40.43865158691614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x8834f2284c000001%3A0x1a620cff11d401a5!2sPatrick%20J%20Sparto%2C%206035%20Forbes%20Ave%2C%20Pittsburgh%2C%20PA%2015260!3m2!1d40.4380479!2d-79.9188959!5e0!3m2!1sen!2sus!4v1604076315720!5m2!1sen!2sus" width="600" height="450" frameBorder="0" style={{ border: 0 }} allowFullScreen={false} aria-hidden="false" tabIndex={0} />
-                    <section className="contact-info">
-                        <span className="title">Contact Information</span>
+                    <section className="store-info">
+                        <span className="title">Store Information</span>
                         <ul className="contact-methods">
                             <li className="method">
                                 <svg width="60" height="59" viewBox="0 0 60 59" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,6 +175,17 @@ export class LocationPage extends React.Component<{}, ILocationState> {
                                 </section>
                             </li>
                             <li className="method">
+                                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="26" cy="26" r="24.5" fill="white" stroke="black" stroke-width="3" />
+                                    <path d="M31 29H40.5M26 6.5V24" stroke="black" stroke-width="3" />
+                                    <circle cx="26" cy="29" r="2" fill="black" />
+                                </svg>
+                                <section className="hours vert-centered">
+                                    <span className="info">Mon - Fri</span>
+                                    <span className="info">2AM - 12PM</span>
+                                </section>
+                            </li>
+                            <li className="method">
                                 <svg width="66" height="58" viewBox="0 0 66 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <mask id="path-1-inside-1" fill="white">
                                         <path d="M46.6335 2.6462C46.9194 1.57927 48.016 0.94611 49.083 1.23199L56.1892 3.13609L51.1594 21.9074L44.0532 20.0033C42.9863 19.7174 42.3531 18.6208 42.639 17.5538L46.6335 2.6462Z" />
@@ -209,6 +219,7 @@ export class LocationPage extends React.Component<{}, ILocationState> {
                             </li>
                         </ul>
                     </section>
+                    <iframe className="map" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d663.2578333165998!2d-79.91890892341169!3d40.43865158691614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x8834f2284c000001%3A0x1a620cff11d401a5!2sPatrick%20J%20Sparto%2C%206035%20Forbes%20Ave%2C%20Pittsburgh%2C%20PA%2015260!3m2!1d40.4380479!2d-79.9188959!5e0!3m2!1sen!2sus!4v1604076315720!5m2!1sen!2sus" width="600" height="450" frameBorder="0" style={{ border: 0 }} allowFullScreen={false} aria-hidden="false" tabIndex={0} />
                 </section>
             </section >
         );
