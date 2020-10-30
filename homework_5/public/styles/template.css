@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
+}
+
+header {
+    background-color: #818EB1;
+}
+
+#header {
+    display: grid;
+    grid-template-areas: ". logo nav";
+    grid-template-columns: repeat(3, 1fr);
+    color: #FFFBEE;
+    align-content: center;
+    padding: 0.5em 8rem 1.2em;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.logo {
+    grid-area: logo;
+    display: grid;
+    grid-template-areas: "line-1" 
+                         "line-2";
+    justify-content: center;
+    text-decoration: none;
+    width: fit-content;
+    justify-self: center;
+    color: inherit;
+}
+
+.logo #line-1 {
+    font-family: "Abril Fatface", cursive;
+    font-size: 2rem;
+    justify-self: center;
+}
+
+.logo #line-2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    justify-self: center;
+}
+
+nav {
+    grid-area: nav;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+nav .nav-item {
+    position: relative;
+    margin-left: 3em;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: inherit;
+}
+
+nav .nav-item:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+nav .nav-item:first-child {
+    margin-left: 0;
+}
+
+#content {
+    max-width: 1440px;
+    margin: 0 auto;
+}

@@ -1,0 +1,186 @@
+#shop-content {
+    display: grid;
+    max-width: 1440px;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4em;
+    margin: 8em auto;
+    padding: 0 8rem;
+}
+
+#product-photos {
+    justify-self: center;
+    width: 100%;
+}
+
+#product-photos #highlight {
+    height: 400px;
+    background-image: url("https://www.veganricha.com/wp-content/uploads/2020/05/Sweet-potato-cinnamon-rolls-veganricha-9420-2-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#product-photos #carousel {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+}
+
+#product-photos #carousel .thumbnail {
+    width: 100px;
+    height: 80px;
+}
+
+#product-photos #carousel .thumbnail#thumb-1 {
+    background-image: url("https://www.lecremedelacrumb.com/wp-content/uploads/2013/07/no-yeast-cinnamon-rolls-10smc-9.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#product-photos #carousel .thumbnail#thumb-2 {
+    background-image: url("https://www.crunchycreamysweet.com/wp-content/uploads/2013/10/cinnamon-roll-cake-A.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#product-photos #carousel .thumbnail:not(:first-child) {
+    margin-left: 2em;
+}
+
+#product-details {
+    justify-self: center;
+}
+
+#product-details #product-header {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-areas: "name"
+                         "rating"
+}
+
+#product-details #product-header #product-name {
+    grid-area: name;
+    font-family: "Abril Fatface", cursive;
+    font-size: 2em;
+}
+
+#product-details #product-header .cta {
+    grid-area: cta;
+    justify-self: end;
+    margin-top: 0
+}
+
+#product-details #product-header #product-rating {
+    grid-area: rating;
+    margin-top: 1em;
+    color: #818EB1;
+}
+
+.product-pricing {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #818EB1;
+}
+
+#product-details #product-header .product-pricing {
+    grid-area: pricing;
+    justify-self: start;
+}
+
+#product-details .shipping {
+    display: block;
+    margin-top: 2em;
+    font-weight: 500;
+}
+
+#product-details .shipping .truck-icon {
+    margin-right: 0.5em;
+}
+
+#product-details #product-description {
+    margin-top: 2em;
+    line-height: 1.5em;
+}
+
+#product-details #product-description .product-desc-content {
+    display: block;
+    margin-top: 1em;
+}
+
+#product-details #product-description .product-desc-content:first-child {
+    margin-top: 0;
+}
+
+#product-details #product-description #product-pricing {
+    color: #818EB1;
+    font-size: 1.5rem;
+}
+
+#product-details #product-selection {
+    display: grid;
+}
+
+#product-details #product-selection .selection {
+    margin-top: 3em;
+}
+
+#product-description .title,
+#product-details #product-selection .selection .title {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#product-details #product-selection .selection .title .curr-selection {
+    text-transform: capitalize;
+    font-weight: 300;
+}
+
+#product-selection .selection label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.8em 1.7em;
+    border: 2px solid #C4C4C4;
+    border-radius: 2px;
+    margin-top: 1em;
+    margin-right: 0.5em;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#product-selection .selection label:before {
+    display: block;
+    content: attr(data-content);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#product-selection .selection label:hover {
+    border-color: #000;
+    transition: border-color 0.2s ease-in-out;
+}
+
+#product-selection .selection#quantity label {
+    display: inline-flex;
+    padding: 0;
+    height: 45px;
+    width: 45px;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-selection .selection input:checked + label{
+    background-color: #000;
+    border-color: #000;
+    color: #FFFBEE;
+    font-weight: 500;
+}
+
+#product-selection .product-pricing {
+    margin-top: 2em;
+}
+
+#product-selection .cta {
+    margin-top: 1em;
+}

@@ -1,0 +1,23 @@
+.cta {
+    width: 180px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    background-color: #818EB1;
+    border: 0;
+    color: #FFFBEE;
+    padding: 1.2em 0;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.cta:focus {
+    border: 0;
+    outline: 0;
+}
+
+.cta:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}

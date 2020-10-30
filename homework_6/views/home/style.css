@@ -1,0 +1,30 @@
+#home-content {
+    display: grid;
+    max-width: 1440px;
+    padding: 0 8rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    grid-template-columns: repeat(2, 1fr);
+    box-sizing: border-box;
+}
+
+#description {
+    margin-top: 10em;
+    letter-spacing: 0;
+}
+
+#description .descriptor {
+    font-family: "Abril Fatface", cursive;
+    font-size: 6em;
+}
+
+#vertical-hero .image {
+    height: 900px;
+    background-image: url("https://www.onceuponachef.com/images/2012/04/Cinnamon-Buns-760x983.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.cta {
+    margin-top: 3em;
+}

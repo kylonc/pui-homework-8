@@ -3,18 +3,15 @@
         "module": "commonjs",
         "esModuleInterop": true,
         "target": "es6",
+        "jsx": "react",
         "noImplicitAny": true,
-        "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "PUI2020/homework_5/dist",
         "baseUrl": ".",
+        "lib": ["es2015", "dom", "dom.iterable"],
         "paths": {
             "*": [
                 "node_modules/*"
             ]
         }
-    },
-    "include": [
-        "PUI2020/homework_5/"
-    ]
+    }
 }
