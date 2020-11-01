@@ -11,6 +11,7 @@ export interface ICartData {
 
 interface ICartProps {
     newItem: ICartData;
+    onUpdate: () => void;
     onRemove: () => void;
     onClose: () => void;
 }
@@ -41,7 +42,7 @@ export class Cart extends React.Component<ICartProps> {
     }
 
     private onUpdate() {
-        // Display update modal
+        this.props.onUpdate();
     }
 
     private onRemove() {
@@ -89,7 +90,7 @@ export class Cart extends React.Component<ICartProps> {
                         </section>
                     </section>
                 </section>
-                <section className="editable-actions">
+                {/* <section className="editable-actions">
                     <button
                         className="action"
                         id="update"
@@ -112,7 +113,7 @@ export class Cart extends React.Component<ICartProps> {
                         </svg>
                         Remove
                     </button>
-                </section>
+                </section> */}
                 <button className="cta checkout">Checkout</button>
             </section>
         )

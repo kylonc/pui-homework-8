@@ -11,6 +11,7 @@ interface IHeaderProps {
     onClickHandler: (navItem: NavItem) => void;
     onCartRemove: () => void;
     onCartClose: () => void;
+    onCartUpdate: () => void;
 }
 
 export enum NavItem {
@@ -83,6 +84,7 @@ export class Header extends React.Component<IHeaderProps> {
                         {this.props.showCart &&
                             <Cart
                                 newItem={this.props.newItem}
+                                onUpdate={this.props.onCartUpdate}
                                 onRemove={this.props.onCartRemove}
                                 onClose={this.props.onCartClose}
                             />}

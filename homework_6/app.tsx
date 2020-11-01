@@ -9,10 +9,11 @@ import { LocationPage } from "./views/location";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 interface IAppState {
-    currentNavItem: NavItem;
-    showCart: boolean;
-    newItem: ICartData;
     cartCount: number;
+    showCart: boolean;
+    shouldShowModal: boolean;
+    currentNavItem: NavItem;
+    newItem: ICartData;
 }
 
 export class App extends React.Component<{}, IAppState> {
@@ -21,16 +22,19 @@ export class App extends React.Component<{}, IAppState> {
     constructor(props = {}) {
         super(props);
         this.state = {
-            currentNavItem: null,
-            showCart: false,
-            newItem: null,
             cartCount: this.cartCount,
+            showCart: false,
+            shouldShowModal: false,
+            newItem: null,
+            currentNavItem: null,
         };
 
         this.onNav = this.onNav.bind(this);
         this.onUpdateCart = this.onUpdateCart.bind(this);
         this.onCartRemove = this.onCartRemove.bind(this);
         this.onCartClose = this.onCartClose.bind(this);
+        this.showModal = this.showModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     public get cartCount(): number {
@@ -48,6 +52,7 @@ export class App extends React.Component<{}, IAppState> {
         this.setState({
             currentNavItem,
             showCart: false,
+            shouldShowModal: false
         });
     }
 
@@ -72,6 +77,18 @@ export class App extends React.Component<{}, IAppState> {
         });
     }
 
+    private showModal() {
+        this.setState({
+            shouldShowModal: true
+        })
+    }
+
+    private closeModal() {
+        this.setState({
+            shouldShowModal: false
+        });
+    }
+
     render() {
         return (
             <Router basename={process.env.PUBLIC_URL}>
@@ -83,11 +100,14 @@ export class App extends React.Component<{}, IAppState> {
                     onClickHandler={this.onNav}
                     onCartRemove={this.onCartRemove}
                     onCartClose={this.onCartClose}
+                    onCartUpdate={this.showModal}
                 />
 
                 <Switch>
                     <Route path="/shop">
-                        <ShopPage onUpdateCart={this.onUpdateCart} />
+                        <ShopPage
+                            onUpdateCart={this.onUpdateCart}
+                        />
                     </Route>
                     <Route path="/about">
                         <AboutPage />
