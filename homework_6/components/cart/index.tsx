@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export interface ICartData {
@@ -11,6 +12,7 @@ export interface ICartData {
 
 interface ICartProps {
     newItem: ICartData;
+    onClick: () => void;
     onUpdate: () => void;
     onRemove: () => void;
     onClose: () => void;
@@ -114,7 +116,9 @@ export class Cart extends React.Component<ICartProps> {
                         Remove
                     </button>
                 </section> */}
-                <button className="cta checkout">Checkout</button>
+                <Link to="/cart" onClick={this.props.onClick}>
+                    <button className="cta checkout">Go to Cart</button>
+                </Link>
             </section>
         )
     }

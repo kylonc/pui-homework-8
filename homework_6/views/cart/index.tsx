@@ -1,6 +1,7 @@
 import React from "react";
 import { NavItem } from "../../components/header";
 import { CTA } from "../../components/cta";
+import { ICartData, Cart } from "../../components/cart";
 import "./style.css";
 
 interface ICartPageProps {
@@ -12,9 +13,31 @@ export class CartPage extends React.Component<ICartPageProps> {
         super(props);
     }
 
-    render() {
+    private get cartItems(): ICartData[] {
+        const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
+
+        if (!cartString) {
+            return [];
+        }
+
+        return JSON.parse(cartString);
+    }
+
+    private getTotalPrice(cart: ICartData[]): number {
+        if (!(cart && cart.length)) {
+            return 0;
+        }
+
+        const totalPrice = cart.reduce((acc: number, curr: ICartData) => {
+            return acc + (curr.quantity * curr.price);
+        }, 0)
+
+        return totalPrice;
+    }
+
+    private showEmptyState(): JSX.Element {
         return (
-            <section id="cart-content" >
+            <section className="empty-state">
                 <span id="message">No goodies in your cart yet.</span>
                 <svg className="sad-cart" width="156" height="108" viewBox="0 0 156 108" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -38,6 +61,51 @@ export class CartPage extends React.Component<ICartPageProps> {
                 </svg>
                 <CTA text="Shop Our Rolls" onClickHandler={this.props.CTAClickHandler} />
                 <span id="tease">Go ahead. We dare you.</span>
+            </section>
+        )
+    }
+
+    private showCartList(): JSX.Element {
+        return <div />;
+    }
+
+    render() {
+        const items: ICartData[] = this.cartItems;
+        const total = this.getTotalPrice(items);
+
+        return (
+            <section id="cart-content">
+                <section className="cart-list">
+                    <div className="header">
+                        <span className="header-item" id="big-title">Cart</span>
+                        <span className="header-item" id="name">Name</span>
+                        <span className="header-item" id="flavor">Flavor</span>
+                        <span className="header-item" id="glaze">Glaze</span>
+                        <span className="header-item" id="quantity">Qty</span>
+                        <span className="header-item" id="price">Unit Price</span>
+                    </div>
+                    {items.length ? this.showCartList() : this.showEmptyState()}
+                </section>
+                <section className="cart-calculation">
+                    <div className="header">Tab</div>
+                    <section className="amount">
+                        <section className="title">
+                            <span>Subtotal</span>
+                            <span>Taxes</span>
+                            <span>Shipping</span>
+                        </section>
+                        <section className="value">
+                            <span>${total}</span>
+                            <span>${items.length}</span>
+                            <span>TBD</span>
+                        </section>
+                    </section>
+                    <section className="total">
+                        <span className="title">Total</span>
+                        <span>${total + items.length} + Shipping</span>
+                    </section>
+                    <CTA text="Checkout" disabled={!Boolean(items.length)} />
+                </section>
             </section >
         );
     }

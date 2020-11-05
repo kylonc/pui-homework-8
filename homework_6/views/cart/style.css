@@ -1,29 +1,135 @@
 #cart-content {
+    display: grid;
+    grid-template-columns: 75% 1fr;
+    column-gap: 4rem;
     max-width: 1440px;
     box-sizing: border-box;
-    padding: 8em;
+    padding: 4rem 8rem;
     margin: 0 auto;
-    display: grid;
 }
 
-#cart-content * {
+#cart-content .empty-state {
+    display: grid;
+    margin-top: 3rem;
+}
+
+#cart-content .empty-state * {
     justify-self: center;
 }
 
-#cart-content #message {
+#cart-content .empty-state #message {
     font-family: "Abril Fatface", cursive;
-    font-size: 3em;
+    font-size: 1.5rem;
     text-align: center;
 }
 
-#cart-content .sad-cart {
-    margin: 5rem 0;
+#cart-content .empty-state .sad-cart {
+    margin: 2rem 0;
     transform: translateX(10%);
 }
 
-#cart-content #tease {
+#cart-content .empty-state #tease {
     display: block;
     font-weight: 500;
     text-align: center;
     margin-top: 2rem;
 }
+
+#cart-content .empty-state .cta {
+    margin-top: 0
+}
+
+#cart-content .cart-list {
+    display: grid;
+}
+
+#cart-content .cart-list .header,
+#cart-content .cart-list {
+    display: grid;
+    width: 100%;
+}
+
+#cart-content .cart-list .header {
+    grid-template-columns: 25% repeat(5, 1fr);
+    grid-template-areas: "big-title name flavor glaze qty price";
+    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 0.5rem;
+}
+
+#cart-content .cart-list .header .header-item#big-title,
+#cart-content .cart-calculation .header {
+    grid-area: big-title;
+    font-family: "Abril Fatface", cursive;
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+#cart-content .cart-list .header .header-item {
+    justify-self: start;
+    align-self: end;
+    font-weight: 500;
+}
+
+#cart-content .cart-list .header .header-item#name {
+    grid-area: name;
+}
+
+#cart-content .cart-list .header .header-item#flavor {
+    grid-area: flavor;
+}
+
+#cart-content .cart-list .header .header-item#glaze {
+    grid-area: glaze;
+}
+
+#cart-content .cart-list .header .header-item#quantity {
+    grid-area: qty;
+}
+#cart-content .cart-list .header .header-item#price {
+    grid-area: price;
+}
+
+#cart-content .cart-calculation .header { 
+    border-bottom: 1px solid #C4C4C4;
+    padding-bottom: 0.5rem;
+}
+
+#cart-content .cart-calculation .amount {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+#cart-content .cart-calculation .amount .title,
+#cart-content .cart-calculation .amount .value {
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-content .cart-calculation .amount .title,
+#cart-content .cart-calculation .total .title {
+    font-weight: 500;
+}
+
+#cart-content .cart-calculation .amount .value {
+    text-align: right;
+}
+
+#cart-content .cart-calculation .amount .title > *,
+#cart-content .cart-calculation .amount .value > * {
+    margin: 0.5rem 0;
+}
+
+#cart-content .cart-calculation .total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+}
+
+#cart-content .cart-calculation .cta {
+    margin-top: 0;
+    width: 100%;
+}
+
