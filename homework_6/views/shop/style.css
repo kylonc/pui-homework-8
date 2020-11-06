@@ -5,7 +5,7 @@
     box-sizing: border-box;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 4em;
-    margin: 8em auto;
+    margin: 4rem auto;
     padding: 0 8rem;
 }
 
