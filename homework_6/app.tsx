@@ -56,6 +56,9 @@ export class App extends React.Component<{}, IAppState> {
 
     }
 
+    /*
+     * Changes position of underline element as user navigates through different pages.
+     */
     public onNav(currentNavItem: NavItem) {
         this.setState({
             currentNavItem,
