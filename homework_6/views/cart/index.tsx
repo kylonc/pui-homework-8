@@ -69,6 +69,7 @@ export class CartPage extends React.Component<ICartPageProps, ICartPageState> {
         const oldItem = Object.assign({}, { ...this.state.item });
         this.props.onUpdateCart(oldItem, newItem);
 
+        // Hide update modal
         this.setState({
             showModal: false
         });
