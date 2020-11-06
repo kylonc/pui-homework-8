@@ -97,7 +97,7 @@ export class OptionSection extends React.Component<IOptionSectionProps> {
             price: 2
         },
         [Glaze.DoubleChocolate]: {
-            name: "DoubleChocolate",
+            name: "Double Chocolate",
             price: 3
         },
     };

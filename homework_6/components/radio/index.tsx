@@ -20,8 +20,10 @@ export class Radio extends React.Component<IRadioProps> {
         this.index = Radio.GLOBAL_INDEX++;
     }
 
-    private changeHanlder(key: string, value: string | number): () => void {
-        return () => {
+    private changeHanlder(key: string, value: string | number): (event: React.ChangeEvent) => void {
+        return (event: React.ChangeEvent) => {
+            event.stopPropagation();
+
             if (!this.props.onChangeHandler) {
                 return;
             }

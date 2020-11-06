@@ -39,24 +39,21 @@
     margin-top: 0
 }
 
-#cart-content .cart-list {
+#cart-content .cart-list .cart-header {
     display: grid;
-}
-
-#cart-content .cart-list .header,
-#cart-content .cart-list {
-    display: grid;
+    align-items: start;
     width: 100%;
 }
 
-#cart-content .cart-list .header {
-    grid-template-columns: 25% repeat(5, 1fr);
-    grid-template-areas: "big-title name flavor glaze qty price";
+#cart-content .cart-list .cart-header {
+    grid-template-columns: 25% repeat(4, 1fr);
+    grid-template-areas: "big-title flavor glaze qty price";
+    column-gap: 20px;
     border-bottom: 1px solid #C4C4C4;
     padding-bottom: 0.5rem;
 }
 
-#cart-content .cart-list .header .header-item#big-title,
+#cart-content .cart-list .cart-header .header-item#big-title,
 #cart-content .cart-calculation .header {
     grid-area: big-title;
     font-family: "Abril Fatface", cursive;
@@ -64,29 +61,55 @@
     line-height: 3rem;
 }
 
-#cart-content .cart-list .header .header-item {
+#cart-content .cart-list .cart-header .header-item {
     justify-self: start;
     align-self: end;
     font-weight: 500;
 }
 
-#cart-content .cart-list .header .header-item#name {
+#cart-content .cart-list .cart-header .header-item#name {
     grid-area: name;
 }
 
-#cart-content .cart-list .header .header-item#flavor {
+#cart-content .cart-list .cart-header .header-item#flavor {
     grid-area: flavor;
 }
 
-#cart-content .cart-list .header .header-item#glaze {
+#cart-content .cart-list .cart-header .header-item#glaze {
     grid-area: glaze;
 }
 
-#cart-content .cart-list .header .header-item#quantity {
+#cart-content .cart-list .cart-header .header-item#quantity {
     grid-area: qty;
 }
-#cart-content .cart-list .header .header-item#price {
+#cart-content .cart-list .cart-header .header-item#price {
     grid-area: price;
+}
+
+#cart-content .cart-list .cart-item-container .cart-item {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    column-gap: 20px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+#cart-content .cart-list .cart-item-container .cart-item .cart-item-img {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+}
+
+#cart-content .cart-list .cart-item-container .cart-item .values {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cart-content .cart-list .cart-item-container .cart-item .values .item-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
 }
 
 #cart-content .cart-calculation .header { 

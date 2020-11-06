@@ -6,12 +6,11 @@ import "./style.css"
 interface IHeaderProps {
     navItem: NavItem;
     newItem: ICartData;
+    cart: ICartData[];
     cartCount: number;
-    showCart: boolean;
+    showCard: boolean;
     onClickHandler: (navItem: NavItem) => void;
-    onCartRemove: () => void;
-    onCartClose: () => void;
-    onCartUpdate: () => void;
+    onCardClose: () => void;
 }
 
 export enum NavItem {
@@ -82,13 +81,12 @@ export class Header extends React.Component<IHeaderProps> {
                                 </Link>
                             </section>
                         </nav>
-                        {this.props.showCart &&
+                        {this.props.showCard &&
                             <Cart
                                 newItem={this.props.newItem}
+                                cart={this.props.cart}
                                 onClick={this.clickHandler(null)}
-                                onUpdate={this.props.onCartUpdate}
-                                onRemove={this.props.onCartRemove}
-                                onClose={this.props.onCartClose}
+                                onClose={this.props.onCardClose}
                             />}
                     </section>
                 </header>

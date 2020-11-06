@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css"
-import { Cart } from "../../components/cart";
 import { ICartData } from "../../components/cart";
 import {
     Flavor,
@@ -11,7 +10,8 @@ import {
 } from "../../components/option-section";
 
 interface IShopPageProps {
-    onUpdateCart: (newItem: ICartData) => void;
+    cart: ICartData[];
+    onAddToCart: (cart: ICartData[], newItem: ICartData) => void;
 }
 
 export interface IShopPageState {
@@ -51,43 +51,25 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
     }
 
     private onAddtoCart() {
-        const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
-        let cart: ICartData[] = [];
+        const cart: ICartData[] = this.props.cart.slice();
 
         // Replace flavor and glaze with user-facing names
-        const newItem: ICartData = Object.assign(
-            {},
-            this.state,
-            {
-                flavor: OptionSection.FLAVOR_MAP[this.state.flavor].name,
-                glaze: OptionSection.GLAZE_MAP[this.state.glaze].name,
-            }
-        );
+        const newItem: ICartData = Object.assign({}, this.state);
 
-        if (!cartString) {
-            // no items in the cart yet
-            cart = [Object.assign({}, newItem)]
-        } else {
-            // combine with items already in cart, if possible
-            cart = JSON.parse(cartString);
-            const itemIndex = cart.findIndex((item: ICartData) => {
-                return item.flavor === newItem.flavor && item.glaze === newItem.glaze;
-            });
+        // const itemIndex = cart.findIndex((item: ICartData) => {
+        //     return item.flavor === newItem.flavor && item.glaze === newItem.glaze;
+        // });
 
-            if (itemIndex >= 0) {
-                cart[itemIndex].quantity += newItem.quantity;
-            } else {
-                cart.push(Object.assign({}, newItem));
-            }
-        }
+        // if (itemIndex >= 0) {
+        //     cart[itemIndex].quantity += newItem.quantity;
+        // } else {
+        //     cart.push(Object.assign({}, newItem));
+        // }
+
+        cart.push(Object.assign({}, newItem));
 
         // Save cart to be used in cart page
-        localStorage.setItem(
-            Cart.LOCALSTORAGE_NAME,
-            JSON.stringify(cart)
-        )
-
-        this.props.onUpdateCart(newItem);
+        this.props.onAddToCart(cart, newItem);
     }
 
     render() {
