@@ -17,7 +17,12 @@
     outline: 0;
 }
 
-.cta:hover {
+.cta:disabled {
+    cursor: not-allowed;
+    background-color: #c4c4c4;
+}
+
+.cta:not(:disabled):hover {
     opacity: 0.8;
     transition: opacity 0.2s ease-in-out;
 }

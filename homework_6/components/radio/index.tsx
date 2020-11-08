@@ -1,5 +1,5 @@
 import React from "react";
-import { IOptionData } from "../../views/shop";
+import { IOptionData } from "../option-section";
 import { ICartData } from "../../components/cart";
 
 interface IRadioProps {
@@ -7,16 +7,27 @@ interface IRadioProps {
     usePlaceholder: boolean;
     options: IOptionData[];
     selectedOption: string | number;
-    onChangeHandler: (key: string, value: string | number) => void;
+    onChangeHandler?: (key: string, value: string | number) => void;
 }
 
 export class Radio extends React.Component<IRadioProps> {
+    public static GLOBAL_INDEX = 0;
+    private index: number;
+
     constructor(props: IRadioProps) {
         super(props);
+
+        this.index = Radio.GLOBAL_INDEX++;
     }
 
-    private changeHanlder(key: string, value: string | number): () => void {
-        return () => {
+    private changeHanlder(key: string, value: string | number): (event: React.ChangeEvent) => void {
+        return (event: React.ChangeEvent) => {
+            event.stopPropagation();
+
+            if (!this.props.onChangeHandler) {
+                return;
+            }
+
             this.props.onChangeHandler(key, value);
         }
     }
@@ -28,7 +39,7 @@ export class Radio extends React.Component<IRadioProps> {
                     return (
                         <React.Fragment key={option.id}>
                             <input
-                                id={option.id}
+                                id={option.id + this.index}
                                 type="radio"
                                 name={this.props.type}
                                 hidden={true}
@@ -36,8 +47,8 @@ export class Radio extends React.Component<IRadioProps> {
                                 onChange={this.changeHanlder(this.props.type, option.key)}
                             />
                             <label
-                                htmlFor={option.id}
-                                { ...(this.props.usePlaceholder && { "data-content": `${option.name}`}) }
+                                htmlFor={option.id + this.index}
+                                {...(this.props.usePlaceholder && { "data-content": `${option.name}` })}
                             >
                                 {option.name}
                             </label>

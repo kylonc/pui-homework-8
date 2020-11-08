@@ -4,7 +4,8 @@ import "./style.css";
 import { NavItem } from "../header";
 
 interface ICTAProps {
-    onClickHandler: (naveItem: NavItem) => void;
+    onClickHandler?: (navItem: NavItem) => void;
+    disabled?: boolean;
     text: string;
 }
 
@@ -15,6 +16,10 @@ export class CTA extends React.Component<ICTAProps> {
 
     private onClickHandler(navItem: NavItem): () => void {
         return () => {
+            if (!this.props.onClickHandler) {
+                return;
+            }
+
             this.props.onClickHandler(navItem);
         };
     }
@@ -22,7 +27,11 @@ export class CTA extends React.Component<ICTAProps> {
     render() {
         return (
             <Link to="/shop" onClick={this.onClickHandler(NavItem.SHOP)}>
-                <button className="cta" type="button">{this.props.text}</button>
+                <button
+                    className="cta"
+                    type="button"
+                    disabled={ typeof this.props.disabled === "boolean" && this.props.disabled}
+                >{this.props.text}</button>
             </Link>
         )
     }

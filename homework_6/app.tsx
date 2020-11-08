@@ -9,10 +9,11 @@ import { LocationPage } from "./views/location";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 interface IAppState {
-    currentNavItem: NavItem;
-    showCart: boolean;
-    newItem: ICartData;
+    cart: ICartData[];
     cartCount: number;
+    showCard: boolean;
+    currentNavItem: NavItem;
+    newItem: ICartData;
 }
 
 export class App extends React.Component<{}, IAppState> {
@@ -21,54 +22,87 @@ export class App extends React.Component<{}, IAppState> {
     constructor(props = {}) {
         super(props);
         this.state = {
-            currentNavItem: null,
-            showCart: false,
+            cart: this.storedCart,
+            cartCount: this.getCartCount(this.storedCart),
+            showCard: false,
             newItem: null,
-            cartCount: this.cartCount,
+            currentNavItem: null,
         };
 
         this.onNav = this.onNav.bind(this);
+        this.onAddToCart = this.onAddToCart.bind(this);
         this.onUpdateCart = this.onUpdateCart.bind(this);
-        this.onCartRemove = this.onCartRemove.bind(this);
-        this.onCartClose = this.onCartClose.bind(this);
+        this.onCardClose = this.onCardClose.bind(this);
     }
 
-    public get cartCount(): number {
+    public get storedCart(): ICartData[] {
         const cartString = localStorage.getItem(Cart.LOCALSTORAGE_NAME);
-        if (cartString) {
-            const cart = JSON.parse(cartString);
-            return cart.reduce((acc: number, curr: ICartData) => {
-                return acc + curr.quantity;
-            }, 0);
+
+        if (!cartString) {
+            return [];
         }
-        return 0;
+
+        return JSON.parse(cartString)
     }
 
+    public set storedCart(cart: ICartData[]) {
+        localStorage.setItem(Cart.LOCALSTORAGE_NAME, JSON.stringify(cart));
+    }
+
+    public getCartCount(cart: ICartData[]): number {
+        return cart.reduce((acc: number, curr: ICartData) => {
+            return acc + curr.quantity;
+        }, 0);
+
+    }
+
+    /*
+     * Changes position of underline element as user navigates through different pages.
+     */
     public onNav(currentNavItem: NavItem) {
         this.setState({
             currentNavItem,
-            showCart: false,
+            showCard: false
         });
     }
 
-    public onUpdateCart(newItem: ICartData) {
+    public onAddToCart(cart: ICartData[], newItem: ICartData) {
         this.setState({
+            cart,
             newItem,
-            showCart: true,
-            cartCount: this.cartCount,
+            showCard: true,
+            cartCount: this.getCartCount(cart),
         });
+
+        this.storedCart = cart;
     }
 
-    private onCartRemove() {
+    private onUpdateCart(oldItem: ICartData, newItem: ICartData, remove?: boolean) {
+        const cart = this.state.cart.slice();
+
+        const toUpdateIndex = cart.findIndex((curr: ICartData) => {
+            return oldItem.flavor === curr.flavor
+                && oldItem.glaze === curr.glaze
+                && oldItem.quantity === curr.quantity;
+        })
+
+        if (remove) {
+            cart.splice(toUpdateIndex, 1);
+        } else {
+            cart[toUpdateIndex] = Object.assign(oldItem, newItem);
+        }
+
         this.setState({
-            showCart: false,
-            cartCount: this.cartCount
+            cart,
+            cartCount: this.getCartCount(cart)
         });
+
+        this.storedCart = cart;
     }
 
-    private onCartClose() {
+    private onCardClose() {
         this.setState({
-            showCart: false
+            showCard: false
         });
     }
 
@@ -78,22 +112,29 @@ export class App extends React.Component<{}, IAppState> {
                 <Header
                     navItem={this.state.currentNavItem}
                     newItem={this.state.newItem}
+                    cart={this.state.cart.slice()}
                     cartCount={this.state.cartCount}
-                    showCart={this.state.showCart}
+                    showCard={this.state.showCard}
                     onClickHandler={this.onNav}
-                    onCartRemove={this.onCartRemove}
-                    onCartClose={this.onCartClose}
+                    onCardClose={this.onCardClose}
                 />
 
                 <Switch>
                     <Route path="/shop">
-                        <ShopPage onUpdateCart={this.onUpdateCart} />
+                        <ShopPage
+                            cart={this.state.cart.slice()}
+                            onAddToCart={this.onAddToCart}
+                        />
                     </Route>
                     <Route path="/about">
                         <AboutPage />
                     </Route>
                     <Route path="/cart">
-                        <CartPage CTAClickHandler={this.onNav} />
+                        <CartPage
+                            cart={this.state.cart.slice()}
+                            onUpdateCart={this.onUpdateCart}
+                            CTAClickHandler={this.onNav}
+                        />
                     </Route>
                     <Route path="/locations">
                         <LocationPage />
