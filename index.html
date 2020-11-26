@@ -3,8 +3,9 @@
 
 <head>
     <title>Animal Gaits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script type="text/javascript" src="./dist/bundle.js"></script>
+    <!-- <script type="text/javascript" src="./dist/bundle.js"></script> -->
 </head>
 
 <body>
@@ -13,26 +14,51 @@
             <span class="title">animal</span>
             <span class="title">gaits</span>
         </header>
-        <section class="main-content">
+        <section class="content">
             <section class="num-legs">[quadrupeds]</section>
-            <section class="interactive-area">
-                <fieldset class="footfall-menu">
+            <section class="footfall-menu">
+                <fieldset class="footfall-pattern-types">
                     <input type="radio" name="pattern" class="pattern" id="walk" hidden checked />
-                    <label for="walk" class="touchable">walk</label>
+                    <label for="walk" data-hidden="walk" class="touchable">walk</label>
                     <input type="radio" name="pattern" class="pattern" id="amble" hidden />
-                    <label for="amble" class="touchable">amble</label>
+                    <label for="amble" data-hidden="amble" class="touchable">amble</label>
                     <input type="radio" name="pattern" class="pattern" id="pace" hidden />
-                    <label for="pace" class="touchable">pace</label>
+                    <label for="pace" data-hidden="pace" class="touchable">pace</label>
                     <input type="radio" name="pattern" class="pattern" id="trot" hidden />
-                    <label for="trot" class="touchable">trot</label>
+                    <label for="trot" data-hidden="trot" class="touchable">trot</label>
                     <input type="radio" name="pattern" class="pattern" id="canter" hidden />
-                    <label for="canter" class="touchable">canter</label>
+                    <label for="canter" data-hidden="canter" class="touchable">canter</label>
                     <input type="radio" name="pattern" class="pattern" id="gallop" hidden />
-                    <label for="gallop" class="touchable">gallop</label>
+                    <label for="gallop" data-hidden="gallop" class="touchable">gallop</label>
                 </fieldset>
-                <section class="doggo"></section>
-                <section class="playback-speed-menu"></section>
             </section>
+            <section class="doggo"></section>
+            <section class="playback-speed-menu">
+                <span>playback speed</span>
+                <input type="radio" name="playback-speed" class="playback-speed" id="1x" hidden checked />
+                <label for="1x" class="touchable">1x</label>
+                <input type="radio" name="playback-speed" class="playback-speed" id="0.75x" hidden />
+                <label for="0.75x" class="touchable">0.75x</label>
+                <input type="radio" name="playback-speed" class="playback-speed" id="0.5x" hidden />
+                <label for="0.5x" class="touchable">0.5x</label>
+            </section>
+            <section class="footfall-viz">
+                something
+            </section>
+            <footer>
+                <span class="inspo">inspired by
+                    <a class="video-link" href="https://vimeo.com/215637283" target="_blank">this video</a>
+                    <a class="video-link" href="https://vimeo.com/215637283" target="_blank">
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.79295 6.5L9.5001 1.79292" stroke="#C58353" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M5.34315 3H1C0.447715 3 0 3.44772 0 4V10C0 10.5523 0.447715 11 1 11H7C7.55228 11 8 10.5523 8 10V6L7 7V10H1V4H4.34315L5.34315 3Z"
+                                fill="#C58353" />
+                            <path d="M6.5 1H9C9.55228 1 10 1.44772 10 2V4.5" stroke="#C58353" />
+                        </svg>
+                    </a>
+                </span>
+            </footer>
         </section>
     </section>
 </body>
