@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Source+Serif+Pro:ital,wght@0,300;0,600;1,300&display=swap');
+
+body {
+    background-color: #FFEDDD;
+    font-family: "Source Serif Pro", serif;
+    color: #693712;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 40px auto 0;
+}
+
+.main-content {
+    margin-top: 80px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    font-family: "Questrial", sans-serif;
+    font-size: 2rem;
+    color: #C58353;
+}
+
+.num-legs {
+    text-align: center;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+.footfall-menu {
+    display: inline-grid;
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 2rem;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.footfall-menu .pattern + .touchable {
+    position: relative;
+    cursor: pointer;
+    width: min-content;
+    color: #CAB8AB;
+    transition: color 0.3s ease;
+}
+
+.footfall-menu .pattern:checked + .touchable {
+    color: #693712;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footfall-menu .pattern + .touchable::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    height: 3px;
+    width: 100%;
+    background-color: #693712;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(.75,.03,.22,.99);
+}
+
+.footfall-menu .pattern:checked + .touchable::before {
+    transform: scaleX(1);
+    transition: transform 0.3s cubic-bezier(.75,.03,.22,.99);
+}

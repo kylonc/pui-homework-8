@@ -6,7 +6,7 @@ module.exports = {
   devtool: "source-map",
 
   // The application entry point
-  entry: "./index.tsx",
+  entry: "./index.ts",
 
   // Where to compile the bundle
   // By default the output directory is `dist`
@@ -23,8 +23,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
+        use: ["style-loader", "css-loader"],
+      }, 
+      {
+        test: /\.styl$/,
+        loader: "stylus-loader"
+      }
     ]
   },
 

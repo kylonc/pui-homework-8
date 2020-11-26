@@ -1,7 +1,7 @@
 {
 	"name": "pui-assignments",
 	"version": "0.0.1",
-	"description": "Homework assignments for Programming User Interfaces at Carnegie Mellon Univeristy",
+	"description": "Homework assignments for Programming Usable Interfaces at Carnegie Mellon Univeristy",
 	"homepage": "http://kylonc.github.io/kylonc.github.io",
 	"main": "dist/index.js",
 	"scripts": {
@@ -22,7 +22,9 @@
 		"nunjucks": "^3.2.2",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
-		"react-router-dom": "^5.2.0"
+		"react-router-dom": "^5.2.0",
+		"stylus": "^0.54.8",
+		"stylus-loader": "^4.3.0"
 	},
 	"devDependencies": {
 		"css-loader": "^5.0.0",

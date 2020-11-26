@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Bun Bun Bake Shop</title>
-        <link rel="stylesheet" href="./index.css"></link>
-        <script type="text/javascript" src="./dist/bundle.js"></script>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
+
+<head>
+    <title>Animal Gaits</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./dist/bundle.js"></script>
+</head>
+
+<body>
+    <section class="container">
+        <header>
+            <span class="title">animal</span>
+            <span class="title">gaits</span>
+        </header>
+        <section class="main-content">
+            <section class="num-legs">[quadrupeds]</section>
+            <section class="interactive-area">
+                <fieldset class="footfall-menu">
+                    <input type="radio" name="pattern" class="pattern" id="walk" hidden checked />
+                    <label for="walk" class="touchable">walk</label>
+                    <input type="radio" name="pattern" class="pattern" id="amble" hidden />
+                    <label for="amble" class="touchable">amble</label>
+                    <input type="radio" name="pattern" class="pattern" id="pace" hidden />
+                    <label for="pace" class="touchable">pace</label>
+                    <input type="radio" name="pattern" class="pattern" id="trot" hidden />
+                    <label for="trot" class="touchable">trot</label>
+                    <input type="radio" name="pattern" class="pattern" id="canter" hidden />
+                    <label for="canter" class="touchable">canter</label>
+                    <input type="radio" name="pattern" class="pattern" id="gallop" hidden />
+                    <label for="gallop" class="touchable">gallop</label>
+                </fieldset>
+                <section class="doggo"></section>
+                <section class="playback-speed-menu"></section>
+            </section>
+        </section>
+    </section>
+</body>
+
 </html>
