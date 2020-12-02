@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&family=Source+Serif+Pro:ital,wght@0,300;0,600;1,300&display=swap');
 
-@keyframes scroll {
-    to {
-        stroke-dashoffset: 1000;
-    }
-}
-
-@keyframes quick-hide {
-    0% {
-        visibility: visible;
-    }
-    50% {
-        visibility: hidden;
-    }
-    100% {
-        visibility: hidden;
-    }
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -119,29 +101,6 @@ header {
     justify-self: center;
 }
 
-.doggo #illustration #ground {
-    stroke-dasharray: 20;
-    animation-name: scroll;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-.doggo #illustration #left-fore-grounded,
-.doggo #illustration #left-hind-lifted,
-.doggo #illustration #right-fore-lifted,
-.doggo #illustration #right-hind-grounded {
-    animation: quick-hide 1s infinite linear;
-}
-
-.doggo #illustration #left-fore-lifted,
-.doggo #illustration #left-hind-grounded,
-.doggo #illustration #right-fore-grounded,
-.doggo #illustration #right-hind-lifted {
-    visibility: hidden;
-    animation: quick-hide 1s infinite 0.5s linear;
-}
-
 .playback-speed-menu {
     grid-area: playback-speed-menu;
     font-family: "Questrial", sans-serif;
@@ -178,58 +137,6 @@ header {
     grid-template-areas: "left-hind left-label left-fore"
                          "right-hind right-label right-fore";
     justify-self: center;
-}
-
-.footfall-viz .left {
-    border-bottom: 1px solid #693712;
-    padding-bottom: 10px;
-}
-
-.footfall-viz .left.hind {
-    grid-area: left-hind;
-}
-
-.footfall-viz .left.label {
-    grid-area: left-label;
-}
-
-.footfall-viz .left.fore {
-    grid-area: left-fore;
-}
-
-.footfall-viz .right {
-    padding-top: 15px;
-}
-
-.footfall-viz .right.hind {
-    grid-area: right-hind;
-}
-
-.footfall-viz .right.label {
-    grid-area: right-label;
-}
-
-.footfall-viz .right.fore {
-    grid-area: right-fore;
-}
-
-.footfall-viz .left.label,
-.footfall-viz .right.label {
-    font-family: "Questrial", sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-}
-
-.footfall-viz .left.hind,
-.footfall-viz .right.hind {
-    padding-left: 30px;
-    padding-right: 80px;
-}
-
-.footfall-viz .left.fore,
-.footfall-viz .right.fore {
-    padding-left: 80px;
-    padding-right: 30px;
 }
 
 footer {

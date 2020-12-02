@@ -1,0 +1,85 @@
+.footfall-viz .left {
+    border-bottom: 1px solid #693712;
+    padding-bottom: 10px;
+}
+
+.footfall-viz .left.hind {
+    grid-area: left-hind;
+}
+
+.footfall-viz .left.label {
+    grid-area: left-label;
+}
+
+.footfall-viz .left.fore {
+    grid-area: left-fore;
+}
+
+.footfall-viz .right {
+    padding-top: 15px;
+}
+
+.footfall-viz .right.hind {
+    grid-area: right-hind;
+}
+
+.footfall-viz .right.label {
+    grid-area: right-label;
+}
+
+.footfall-viz .right.fore {
+    grid-area: right-fore;
+}
+
+.footfall-viz .left.label,
+.footfall-viz .right.label {
+    font-family: "Questrial", sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.footfall-viz .left.hind,
+.footfall-viz .right.hind {
+    padding-left: 30px;
+    padding-right: 80px;
+}
+
+.footfall-viz .left.fore,
+.footfall-viz .right.fore {
+    padding-left: 80px;
+    padding-right: 30px;
+}
+
+/* Pattern: walk */
+.footfall-viz.walk .right.hind svg {
+    animation: quick-hide 1.5s infinite 1.15s linear;
+}
+
+.footfall-viz.walk .right.fore svg {
+    animation: quick-hide 1.5s infinite 0.75s linear;
+}
+
+.footfall-viz.walk .left.hind svg {
+    animation: quick-hide 1.5s infinite 0.5s linear;
+}
+
+.footfall-viz.walk .left.fore svg {
+    animation: quick-hide 1.5s infinite 0.1s linear;
+}
+
+/* Pattern: amble */
+.footfall-viz.amble .right.hind svg {
+    animation: quick-hide 1s infinite 0.9s linear;
+}
+
+.footfall-viz.amble .right.fore svg {
+    animation: quick-hide 1s infinite 0.75s linear;
+}
+
+.footfall-viz.amble .left.hind svg {
+    animation: quick-hide 1s infinite 0.2s linear;
+}
+
+.footfall-viz.amble .left.fore svg {
+    animation: quick-hide 1s infinite 0.05s linear;
+}

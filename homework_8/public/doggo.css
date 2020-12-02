@@ -1,0 +1,97 @@
+@keyframes ground-scroll {
+    to {
+        stroke-dashoffset: 1000;
+    }
+}
+
+@keyframes quick-hide {
+    0% {
+        visibility: visible;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+.doggo #illustration #ground {
+    stroke-dasharray: 20;
+    animation-name: ground-scroll;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+/* Pattern: walk */
+
+.doggo.walk #illustration #ground {
+    animation-duration: 20s;
+}
+
+.doggo.walk #illustration #left-fore-lifted,
+.doggo.walk #illustration #left-hind-lifted,
+.doggo.walk #illustration #right-fore-grounded,
+.doggo.walk #illustration #right-hind-lifted {
+    visibility: hidden;
+}
+
+.doggo.walk #illustration #right-fore-lifted {
+    animation: quick-hide 1.5s infinite linear;
+}
+
+.doggo.walk #illustration #right-fore-grounded {
+    animation: quick-hide 1.5s infinite 0.75s linear;
+}
+
+.doggo.walk #illustration #right-hind-lifted {
+    animation: quick-hide 1.5s infinite 0.1s linear;
+}
+
+.doggo.walk #illustration #right-hind-grounded {
+    animation: quick-hide 1.5s infinite 0.85s linear;
+}
+
+.doggo.walk #illustration #left-fore-lifted {
+    animation: quick-hide 1.5s infinite 0.75s linear;
+}
+
+.doggo.walk #illustration #left-fore-grounded {
+    animation: quick-hide 1.5s infinite 1.5s linear;
+}
+
+.doggo.walk #illustration #left-hind-lifted {
+    animation: quick-hide 1.5s infinite 0.85s linear;
+}
+
+.doggo.walk #illustration #left-hind-grounded {
+    animation: quick-hide 1.5s infinite 1.6s linear;
+}
+
+
+/* Pattern: abmle */
+.doggo.amble #illustration #ground {
+    animation-duration: 15s;
+}
+
+.doggo.amble #illustration #left-fore-lifted,
+.doggo.amble #illustration #left-hind-lifted,
+.doggo.amble #illustration #right-fore-grounded,
+.doggo.amble #illustration #right-hind-grounded {
+    visibility: hidden;
+}
+
+.doggo.amble #illustration #left-fore-grounded,
+.doggo.amble #illustration #left-hind-grounded,
+.doggo.amble #illustration #right-fore-lifted,
+.doggo.amble #illustration #right-hind-lifted {
+    animation: quick-hide 1s infinite linear;
+}
+
+.doggo.amble #illustration #left-fore-lifted,
+.doggo.amble #illustration #left-hind-lifted,
+.doggo.amble #illustration #right-fore-grounded,
+.doggo.amble #illustration #right-hind-grounded {
+    animation: quick-hide 1s infinite 0.5s linear;
+}

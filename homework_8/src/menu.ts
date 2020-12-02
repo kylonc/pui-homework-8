@@ -1,12 +1,16 @@
 export class Menu {
     private selector: string;
-    private activeClass: string;
-    private activeElement: Element;
 
-    constructor(selector: string, activeClass: string) {
+    private lastPattern: string;
+    private animator: HTMLElement;
+    private footfallViz: HTMLElement;
+
+    constructor(selector: string, animator: HTMLElement, footfallViz: HTMLElement) {
         this.selector = selector;
-        this.activeClass = activeClass;
-        this.activeElement = null;
+
+        this.lastPattern = "walk";
+        this.animator = animator;
+        this.footfallViz = footfallViz;
     }
 
     public activateElements() {
@@ -16,16 +20,16 @@ export class Menu {
             throw new Error(`No elements with selector ${this.selector} was found.`);
         }
 
-        elems.forEach((el: Element) => {
+        elems.forEach((el: HTMLLabelElement) => {
             el.addEventListener("click", (ev: Event) => {
                 ev.stopPropagation();
 
-                if (this.activeElement) {
-                    this.activeElement.classList.remove(this.activeClass);
-                }
-
-                el.classList.add(this.activeClass);
-                this.activeElement = el;
+                const newPattern = el.getAttribute("for");
+                this.animator.classList.remove(this.lastPattern);
+                this.animator.classList.add(newPattern);
+                this.footfallViz.classList.remove(this.lastPattern);
+                this.footfallViz.classList.add(newPattern);
+                this.lastPattern = newPattern;
             })
         })
     }
