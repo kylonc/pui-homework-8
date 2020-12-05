@@ -1,4 +1,5 @@
-import { Menu } from "./homework_8/src/menu";
+import { GaitMenu } from "./homework_8/src/gaitMenu";
+import { PlaybackMenu } from "./homework_8/src/playbackMenu";
 
 window.addEventListener("load", start);
 
@@ -10,11 +11,9 @@ function start() {
         return;
     }
 
-    // Initialize the animation with the walk pattern
-    const initialPattern = "walk";
-    doggo.classList.add(initialPattern);
-    footfallViz.classList.add(initialPattern);
+    const gaitMenu = new GaitMenu(doggo, footfallViz);
+    const playbackMenu = new PlaybackMenu(doggo, footfallViz);
 
-    const footFallMenu = new Menu(".footfall-menu .touchable", doggo, footfallViz);
-    footFallMenu.activateElements();
+    gaitMenu.activateItems();
+    playbackMenu.activateItems();
 }

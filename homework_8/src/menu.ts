@@ -1,36 +1,26 @@
 export class Menu {
-    private selector: string;
+    private static ITEM_SELECTOR = ".touchable";
+    private container: HTMLElement;
 
-    private lastPattern: string;
-    private animator: HTMLElement;
-    private footfallViz: HTMLElement;
-
-    constructor(selector: string, animator: HTMLElement, footfallViz: HTMLElement) {
-        this.selector = selector;
-
-        this.lastPattern = "walk";
-        this.animator = animator;
-        this.footfallViz = footfallViz;
+    constructor(containerSelector: string) {
+        this.container = document.querySelector(containerSelector);
+        if (!this.container) {
+            throw new Error(`No menu with selector ${containerSelector} was found`);
+        }
     }
 
-    public activateElements() {
-        const elems = document.querySelectorAll(this.selector);
+    public activateItems(clickCallback: (item: HTMLElement) => void) {
+        const items = this.container.querySelectorAll(Menu.ITEM_SELECTOR);
 
-        if (!elems.length) {
-            throw new Error(`No elements with selector ${this.selector} was found.`);
+        if (!items.length) {
+            throw new Error(`No menu item with selector ${Menu.ITEM_SELECTOR} was found`)
         }
 
-        elems.forEach((el: HTMLLabelElement) => {
-            el.addEventListener("click", (ev: Event) => {
-                ev.stopPropagation();
-
-                const newPattern = el.getAttribute("for");
-                this.animator.classList.remove(this.lastPattern);
-                this.animator.classList.add(newPattern);
-                this.footfallViz.classList.remove(this.lastPattern);
-                this.footfallViz.classList.add(newPattern);
-                this.lastPattern = newPattern;
-            })
-        })
+        items.forEach((item: HTMLElement) => {
+            item.addEventListener("click", (event: Event) => {
+                event.stopPropagation();
+                clickCallback(item);
+            });
+        });
     }
 }

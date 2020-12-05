@@ -50,36 +50,240 @@
     padding-right: 30px;
 }
 
+.footfall-viz svg {
+    animation-name: quick-hide;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 /* Pattern: walk */
-.footfall-viz.walk .right.hind svg {
-    animation: quick-hide 1.5s infinite 1.15s linear;
+.footfall-viz.walk.speed-100 svg {
+    animation-duration: 1.5s;
+}
+.footfall-viz.walk.speed-75 svg {
+    animation-duration: 2s;
+}
+.footfall-viz.walk.speed-50 svg {
+    animation-duration: 3s;
 }
 
-.footfall-viz.walk .right.fore svg {
-    animation: quick-hide 1.5s infinite 0.75s linear;
+.footfall-viz.walk.speed-100 .right.hind svg {
+    animation-delay: 0.9s;
+}
+.footfall-viz.walk.speed-75 .right.hind svg {
+    animation-delay: 1.2s;
+}
+.footfall-viz.walk.speed-50 .right.hind svg {
+    animation-delay: 1.8s;
 }
 
-.footfall-viz.walk .left.hind svg {
-    animation: quick-hide 1.5s infinite 0.5s linear;
+.footfall-viz.walk.speed-100 .right.fore svg {
+    animation-delay: 0.75s;
+}
+.footfall-viz.walk.speed-75 .right.fore svg {
+    animation-delay: 1s;
+}
+.footfall-viz.walk.speed-50 .right.fore svg {
+    animation-delay: 1.5s;
 }
 
-.footfall-viz.walk .left.fore svg {
-    animation: quick-hide 1.5s infinite 0.1s linear;
+.footfall-viz.walk.speed-100 .left.hind svg {
+    animation-delay: 0.2s;
+}
+.footfall-viz.walk.speed-75 .left.hind svg {
+    animation-delay: 0.26s;
+}
+.footfall-viz.walk.speed-50 .left.hind svg {
+    animation-delay: 0.4s;
+}
+
+.footfall-viz.walk.speed-100 .left.fore svg {
+    animation-delay: 0.1s;
+}
+.footfall-viz.walk.speed-75 .left.fore svg {
+    animation-delay: 0.13s;
+}
+.footfall-viz.walk.speed-50 .left.fore svg {
+    animation-delay: 0.2s;
 }
 
 /* Pattern: amble */
-.footfall-viz.amble .right.hind svg {
-    animation: quick-hide 1s infinite 0.9s linear;
+.footfall-viz.amble.speed-100 svg {
+    animation-duration: 1.2s;
+}
+.footfall-viz.amble.speed-75 svg {
+    animation-duration: 1.6s;
+}
+.footfall-viz.amble.speed-50 svg {
+    animation-duration: 2.4s;
 }
 
-.footfall-viz.amble .right.fore svg {
-    animation: quick-hide 1s infinite 0.75s linear;
+.footfall-viz.amble.speed-100 .right.hind svg {
+    animation-delay: 0.7s;
+}
+.footfall-viz.amble.speed-75 .right.hind svg {
+    animation-delay: 0.93s;
+}
+.footfall-viz.amble.speed-50 .right.hind svg {
+    animation-delay: 1.4s;
 }
 
-.footfall-viz.amble .left.hind svg {
-    animation: quick-hide 1s infinite 0.2s linear;
+.footfall-viz.amble.speed-100 .right.fore svg {
+    animation-delay: 0.6s;
+}
+.footfall-viz.amble.speed-75 .right.fore svg {
+    animation-delay: 0.8s;
+}
+.footfall-viz.amble.speed-50 .right.fore svg {
+    animation-delay: 1.2s;
 }
 
-.footfall-viz.amble .left.fore svg {
-    animation: quick-hide 1s infinite 0.05s linear;
+.footfall-viz.amble.speed-100 .left.hind svg {
+    animation-delay: 0.2s;
+}
+.footfall-viz.amble.speed-75 .left.hind svg {
+    animation-delay: 0.27s;
+}
+.footfall-viz.amble.speed-50 .left.hind svg {
+    animation-delay: 0.4s;
+}
+
+.footfall-viz.amble.speed-100 .left.fore svg {
+    animation-delay: 0.1s;
+}
+.footfall-viz.amble.speed-100 .left.fore svg {
+    animation-delay: 0.13s;
+}
+.footfall-viz.amble.speed-100 .left.fore svg {
+    animation-delay: 0.2s;
+}
+
+/* Pattern: pace */
+.footfall-viz.pace.speed-100 svg {
+    animation-duration: 0.8s;
+}
+.footfall-viz.pace.speed-75 svg {
+    animation-duration: 1.06s;
+}
+.footfall-viz.pace.speed-50 svg {
+    animation-duration: 1.6s;
+}
+
+.footfall-viz.pace.speed-100 .right.hind svg,
+.footfall-viz.pace.speed-100 .right.fore svg {
+    animation-delay:0.4s;
+}
+.footfall-viz.pace.speed-75 .right.hind svg,
+.footfall-viz.pace.speed-75 .right.fore svg {
+    animation-delay:0.53s;
+}
+.footfall-viz.pace.speed-50 .right.hind svg,
+.footfall-viz.pace.speed-50 .right.fore svg {
+    animation-delay:0.8s;
+}
+
+/* Pattern: trot */
+.footfall-viz.trot.speed-100 svg {
+    animation-duration: 0.6s;
+}
+.footfall-viz.trot.speed-75 svg {
+    animation-duration: 0.8s;
+}
+.footfall-viz.trot.speed-50 svg {
+    animation-duration: 1.2s;
+}
+
+.footfall-viz.trot.speed-100 .right.fore svg,
+.footfall-viz.trot.speed-100 .left.hind svg {
+    animation-delay: 0.3s;
+}
+.footfall-viz.trot.speed-75 .right.fore svg,
+.footfall-viz.trot.speed-75 .left.hind svg {
+    animation-delay: 0.4s;
+}
+.footfall-viz.trot.speed-50 .right.fore svg,
+.footfall-viz.trot.speed-50 .left.hind svg {
+    animation-delay: 0.6s;
+}
+
+/* Pattern: canter */
+.footfall-viz.canter.speed-100 svg {
+    animation-duration: 0.5s;
+}
+.footfall-viz.canter.speed-75 svg {
+    animation-duration: 0.67s;
+}
+.footfall-viz.canter.speed-50 svg {
+    animation-duration: 1s;
+}
+
+.footfall-viz.canter.speed-100 .right.hind svg {
+    animation-delay: 0.125s;
+}
+.footfall-viz.canter.speed-75 .right.hind svg {
+    animation-delay: 0.17s;
+}
+.footfall-viz.canter.speed-50 .right.hind svg {
+    animation-delay: 0.25s;
+}
+
+.footfall-viz.canter.speed-100 .right.fore svg {
+    animation-delay: 0.375s;
+}
+.footfall-viz.canter.speed-75 .right.fore svg {
+    animation-delay: 0.5s;
+}
+.footfall-viz.canter.speed-50 .right.fore svg {
+    animation-delay: 0.75s;
+}
+
+.footfall-viz.canter.speed-100 .left.fore svg {
+    animation-delay: 0.25s;
+}
+.footfall-viz.canter.speed-75 .left.fore svg {
+    animation-delay: 0.27s;
+}
+.footfall-viz.canter.speed-50 .left.fore svg {
+    animation-delay: 0.5s;
+}
+
+/* Pattern: gallop */
+.footfall-viz.gallop.speed-100 svg {
+    animation-duration: 0.4s;
+}
+.footfall-viz.gallop.speed-75 svg {
+    animation-duration: 0.53s;
+}
+.footfall-viz.gallop.speed-50 svg {
+    animation-duration: 0.8s;
+}
+
+.footfall-viz.gallop.speed-100 .right.hind svg {
+    animation-delay: 0.1s;
+}
+.footfall-viz.gallop.speed-75 .right.hind svg {
+    animation-delay: 0.13s;
+}
+.footfall-viz.gallop.speed-50 .right.hind svg {
+    animation-delay: 0.2s;
+}
+
+.footfall-viz.gallop.speed-100 .right.fore svg {
+    animation-delay: 0.3s;
+}
+.footfall-viz.gallop.speed-75 .right.fore svg {
+    animation-delay: 0.4s;
+}
+.footfall-viz.gallop.speed-50 .right.fore svg {
+    animation-delay: 0.6s;
+}
+
+.footfall-viz.gallop.speed-100 .left.fore svg {
+    animation-delay: 0.2s;
+}
+.footfall-viz.gallop.speed-75 .left.fore svg {
+    animation-delay: 0.27s;
+}
+.footfall-viz.gallop.speed-50 .left.fore svg {
+    animation-delay: 0.4s;
 }
