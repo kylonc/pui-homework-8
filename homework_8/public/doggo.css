@@ -352,13 +352,6 @@
     visibility: hidden;
 }
 
-/* .doggo.gallop #illustration #left-fore-extended,
-.doggo.gallop #illustration #left-hind-extended,
-.doggo.gallop #illustration #right-fore-extended,
-.doggo.gallop #illustration #right-hind-extended {
-    animation: quick-hide 0.4s infinite linear;
-} */
-
 .doggo.gallop.speed-100 #illustration #left-fore-collected,
 .doggo.gallop.speed-100 #illustration #left-hind-collected,
 .doggo.gallop.speed-100 #illustration #right-fore-collected,
