@@ -43,7 +43,7 @@ export class ShopPage extends React.Component<IShopPageProps, IShopPageState> {
             { [option]: value }
         );
 
-        // Update price and imgSrc everytime since we don't know which state changed
+        // Update price and imgSrc everytime since we don't know which option changed
         nextState.price = OptionSection.FLAVOR_MAP[nextState.flavor].price + OptionSection.GLAZE_MAP[nextState.glaze].price;
         nextState.imgSrc = OptionSection.FLAVOR_MAP[nextState.flavor].imgSrc;
 

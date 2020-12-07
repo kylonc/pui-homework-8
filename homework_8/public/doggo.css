@@ -1,0 +1,372 @@
+@keyframes ground-scroll {
+    to {
+        stroke-dashoffset: 1000;
+    }
+}
+
+@keyframes quick-hide {
+    0% {
+        visibility: visible;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: hidden;
+    }
+}
+
+.doggo #illustration #ground {
+    stroke-dasharray: 20;
+    animation-name: ground-scroll;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.doggo #illustration .leg {
+    animation-name: quick-hide;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;;
+}
+
+
+/* Pattern: walk */
+
+.doggo.walk.speed-100 #illustration #ground {
+    animation-duration: 30s;
+}
+.doggo.walk.speed-75 #illustration #ground {
+    animation-duration: 40s;
+}
+.doggo.walk.speed-50 #illustration #ground {
+    animation-duration: 60s;
+}
+
+.doggo.walk.speed-100 #illustration .upright {
+    animation-duration: 1.5s;
+}
+.doggo.walk.speed-75 #illustration .upright {
+    animation-duration: 2.0s;
+}
+.doggo.walk.speed-50 #illustration .upright {
+    animation-duration: 3.0s;
+}
+
+.doggo.walk #illustration #left-fore-lifted,
+.doggo.walk #illustration #left-hind-lifted,
+.doggo.walk #illustration #right-fore-grounded,
+.doggo.walk #illustration #right-hind-lifted,
+.doggo.walk #illustration .extended {
+    visibility: hidden;
+}
+
+.doggo.walk.speed-100 #illustration #right-fore-grounded {
+    animation-delay: 0.75s;
+}
+.doggo.walk.speed-75 #illustration #right-fore-grounded {
+    animation-delay: 1s;
+}
+.doggo.walk.speed-50 #illustration #right-fore-grounded {
+    animation-delay: 1.5s;
+}
+
+.doggo.walk.speed-100 #illustration #right-hind-lifted {
+    animation-delay: 0.1s;
+}
+.doggo.walk.speed-75 #illustration #right-hind-lifted {
+    animation-delay: 0.13s;
+}
+.doggo.walk.speed-50 #illustration #right-hind-lifted {
+    animation-delay: 0.2s;
+}
+
+.doggo.walk.speed-100 #illustration #right-hind-grounded {
+    animation-delay: 0.85s;
+}
+.doggo.walk.speed-75 #illustration #right-hind-grounded {
+    animation-delay: 1.13s;
+}
+.doggo.walk.speed-50 #illustration #right-hind-grounded {
+    animation-delay: 1.7s;
+}
+
+.doggo.walk.speed-100 #illustration #left-fore-lifted {
+    animation-delay: 0.75s
+}
+.doggo.walk.speed-75 #illustration #left-fore-lifted {
+    animation-delay: 1s
+}
+.doggo.walk.speed-50 #illustration #left-fore-lifted {
+    animation-delay: 1.5s
+}
+
+.doggo.walk.speed-100 #illustration #left-fore-grounded {
+    animation-delay: 1.5s;
+}
+.doggo.walk.speed-75 #illustration #left-fore-grounded {
+    animation-delay: 2s;
+}
+.doggo.walk.speed-50 #illustration #left-fore-grounded {
+    animation-delay: 3s;
+}
+
+.doggo.walk.speed-100 #illustration #left-hind-lifted {
+    animation-delay: 0.85s;
+}
+.doggo.walk.speed-75 #illustration #left-hind-lifted {
+    animation-delay: 1.13s;
+}
+.doggo.walk.speed-50 #illustration #left-hind-lifted {
+    animation-delay: 1.7s;
+}
+
+.doggo.walk.speed-100 #illustration #left-hind-grounded {
+    animation-delay: 1.6s;
+}
+.doggo.walk.speed-75 #illustration #left-hind-grounded {
+    animation-delay: 2.13s;
+}
+.doggo.walk.speed-50 #illustration #left-hind-grounded {
+    animation-delay: 3.2s;
+}
+
+
+/* Pattern: abmle */
+.doggo.amble.speed-100 #illustration #ground {
+    animation-duration: 15s;
+}
+.doggo.amble.speed-75 #illustration #ground {
+    animation-duration: 20s;
+}
+.doggo.amble.speed-50 #illustration #ground {
+    animation-duration: 30s;
+}
+
+.doggo.amble.speed-100 #illustration .upright {
+    animation-duration: 1.2s;
+}
+.doggo.amble.speed-75 #illustration .upright {
+    animation-duration: 1.6s;
+}
+.doggo.amble.speed-50 #illustration .upright {
+    animation-duration: 2.4s;
+}
+
+.doggo.amble #illustration #left-fore-grounded,
+.doggo.amble #illustration #left-hind-grounded,
+.doggo.amble #illustration #right-fore-lifted,
+.doggo.amble #illustration #right-hind-lifted,
+.doggo.amble #illustration .extended {
+    visibility: hidden;
+}
+
+.doggo.amble.speed-100 #illustration #left-fore-lifted,
+.doggo.amble.speed-100 #illustration #left-hind-lifted,
+.doggo.amble.speed-100 #illustration #right-fore-grounded,
+.doggo.amble.speed-100 #illustration #right-hind-grounded {
+    animation-delay: 0.6s;
+}
+.doggo.amble.speed-75 #illustration #left-fore-lifted,
+.doggo.amble.speed-75 #illustration #left-hind-lifted,
+.doggo.amble.speed-75 #illustration #right-fore-grounded,
+.doggo.amble.speed-75 #illustration #right-hind-grounded {
+    animation-delay: 0.8s;
+}
+.doggo.amble.speed-50 #illustration #left-fore-lifted,
+.doggo.amble.speed-50 #illustration #left-hind-lifted,
+.doggo.amble.speed-50 #illustration #right-fore-grounded,
+.doggo.amble.speed-50 #illustration #right-hind-grounded {
+    animation-delay: 1.2s;
+}
+
+/* Pattern: pace */
+.doggo.pace.speed-100 #illustration #ground {
+    animation-duration: 8s;
+}
+.doggo.pace.speed-75 #illustration #ground {
+    animation-duration: 10.7s;
+}
+.doggo.pace.speed-50 #illustration #ground {
+    animation-duration: 16s;
+}
+
+.doggo.pace.speed-100 #illustration .upright {
+    animation-duration: 0.8s;
+}
+.doggo.pace.speed-75 #illustration .upright {
+    animation-duration: 1.06s;
+}
+.doggo.pace.speed-50 #illustration .upright {
+    animation-duration: 1.6s;
+}
+
+.doggo.pace #illustration #left-fore-lifted,
+.doggo.pace #illustration #left-hind-lifted,
+.doggo.pace #illustration #right-fore-grounded,
+.doggo.pace #illustration #right-hind-grounded,
+.doggo.pace #illustration .extended {
+    visibility: hidden;
+}
+
+.doggo.pace.speed-100 #illustration #left-fore-lifted,
+.doggo.pace.speed-100 #illustration #left-hind-lifted,
+.doggo.pace.speed-100 #illustration #right-fore-grounded,
+.doggo.pace.speed-100 #illustration #right-hind-grounded {
+    animation-delay: 0.4s;
+}
+.doggo.pace.speed-75 #illustration #left-fore-lifted,
+.doggo.pace.speed-75 #illustration #left-hind-lifted,
+.doggo.pace.speed-75 #illustration #right-fore-grounded,
+.doggo.pace.speed-75 #illustration #right-hind-grounded {
+    animation-delay: 0.53s;
+}
+.doggo.pace.speed-50 #illustration #left-fore-lifted,
+.doggo.pace.speed-50 #illustration #left-hind-lifted,
+.doggo.pace.speed-50 #illustration #right-fore-grounded,
+.doggo.pace.speed-50 #illustration #right-hind-grounded {
+    animation-delay: 0.8s;
+}
+
+/* Pattern: trot */
+.doggo.trot.speed-100 #illustration #ground {
+    animation-duration: 6s;
+}
+.doggo.trot.speed-75 #illustration #ground {
+    animation-duration: 8s;
+}
+.doggo.trot.speed-50 #illustration #ground {
+    animation-duration: 12s;
+}
+
+.doggo.trot.speed-100 #illustration .upright {
+    animation-duration: 0.6s;
+}
+.doggo.trot.speed-75 #illustration .upright {
+    animation-duration: 0.8s;
+}
+.doggo.trot.speed-50 #illustration .upright {
+    animation-duration: 1.2s;
+}
+
+.doggo.trot #illustration #left-fore-lifted,
+.doggo.trot #illustration #left-hind-grounded,
+.doggo.trot #illustration #right-fore-grounded,
+.doggo.trot #illustration #right-hind-lifted,
+.doggo.trot #illustration .extended {
+    visibility: hidden;
+}
+
+.doggo.trot.speed-100 #illustration #left-fore-grounded,
+.doggo.trot.speed-100 #illustration #left-hind-lifted,
+.doggo.trot.speed-100 #illustration #right-fore-lifted,
+.doggo.trot.speed-100 #illustration #right-hind-grounded {
+    animation-delay: 0.3s;
+}
+.doggo.trot.speed-75 #illustration #left-fore-grounded,
+.doggo.trot.speed-75 #illustration #left-hind-lifted,
+.doggo.trot.speed-75 #illustration #right-fore-lifted,
+.doggo.trot.speed-75 #illustration #right-hind-grounded {
+    animation-delay: 0.4s;
+}
+.doggo.trot.speed-50 #illustration #left-fore-grounded,
+.doggo.trot.speed-50 #illustration #left-hind-lifted,
+.doggo.trot.speed-50 #illustration #right-fore-lifted,
+.doggo.trot.speed-50 #illustration #right-hind-grounded {
+    animation-delay: 0.6s;
+}
+
+/* Pattern: canter */
+.doggo.canter.speed-100 #illustration #ground {
+    animation-duration: 5s;
+}
+.doggo.canter.speed-75 #illustration #ground {
+    animation-duration: 6.7s;
+}
+.doggo.canter.speed-50 #illustration #ground {
+    animation-duration: 10s;
+}
+
+.doggo.canter.speed-100 #illustration .extended {
+    animation-duration: 0.5s;
+}
+.doggo.canter.speed-75 #illustration .extended {
+    animation-duration: 0.67s;
+}
+.doggo.canter.speed-50 #illustration .extended {
+    animation-duration: 1s;
+}
+
+.doggo.canter #illustration #left-fore-collected,
+.doggo.canter #illustration #left-hind-collected,
+.doggo.canter #illustration #right-fore-collected,
+.doggo.canter #illustration #right-hind-collected,
+.doggo.canter #illustration .upright {
+    visibility: hidden;
+}
+
+.doggo.canter.speed-100 #illustration #left-fore-collected,
+.doggo.canter.speed-100 #illustration #left-hind-collected,
+.doggo.canter.speed-100 #illustration #right-fore-collected,
+.doggo.canter.speed-100 #illustration #right-hind-collected {
+    animation-delay: 0.25s;
+}
+.doggo.canter.speed-75 #illustration #left-fore-collected,
+.doggo.canter.speed-75 #illustration #left-hind-collected,
+.doggo.canter.speed-75 #illustration #right-fore-collected,
+.doggo.canter.speed-75 #illustration #right-hind-collected {
+    animation-delay: 0.33s;
+}
+.doggo.canter.speed-50 #illustration #left-fore-collected,
+.doggo.canter.speed-50 #illustration #left-hind-collected,
+.doggo.canter.speed-50 #illustration #right-fore-collected,
+.doggo.canter.speed-50 #illustration #right-hind-collected {
+    animation-delay: 0.5s;
+}
+
+/* Pattern: gallop */
+.doggo.gallop.speed-100 #illustration #ground {
+    animation-duration: 4s;
+}
+.doggo.gallop.speed-75 #illustration #ground {
+    animation-duration: 5.3s;
+}
+.doggo.gallop.speed-50 #illustration #ground {
+    animation-duration: 8s;
+}
+
+.doggo.gallop.speed-100 #illustration .extended {
+    animation-duration: 0.4s;
+}
+.doggo.gallop.speed-75 #illustration .extended {
+    animation-duration: 0.53s;
+}
+.doggo.gallop.speed-50 #illustration .extended {
+    animation-duration: 0.8s;
+}
+
+.doggo.gallop #illustration #left-fore-collected,
+.doggo.gallop #illustration #left-hind-collected,
+.doggo.gallop #illustration #right-fore-collected,
+.doggo.gallop #illustration #right-hind-collected,
+.doggo.gallop #illustration .upright {
+    visibility: hidden;
+}
+
+.doggo.gallop.speed-100 #illustration #left-fore-collected,
+.doggo.gallop.speed-100 #illustration #left-hind-collected,
+.doggo.gallop.speed-100 #illustration #right-fore-collected,
+.doggo.gallop.speed-100 #illustration #right-hind-collected {
+    animation-delay: 0.2s;
+}
+.doggo.gallop.speed-75 #illustration #left-fore-collected,
+.doggo.gallop.speed-75 #illustration #left-hind-collected,
+.doggo.gallop.speed-75 #illustration #right-fore-collected,
+.doggo.gallop.speed-75 #illustration #right-hind-collected {
+    animation-delay: 0.27s;
+}
+.doggo.gallop.speed-50 #illustration #left-fore-collected,
+.doggo.gallop.speed-50 #illustration #left-hind-collected,
+.doggo.gallop.speed-50 #illustration #right-fore-collected,
+.doggo.gallop.speed-50 #illustration #right-hind-collected {
+    animation-delay: 0.4s;
+}
